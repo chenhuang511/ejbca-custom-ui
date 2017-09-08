@@ -9,7 +9,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:/EjbcaDS</jta-data-source>        
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <!--
             	We don't want Hibernate to go and change the database schema on it's own initiative, since we still use
             	manual upgrade scripts. But we do want to create a database schema if this is a fresh install.
