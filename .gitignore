@@ -19,7 +19,7 @@
 # Eclipse
 ######################
 *.pydevproject
-.project
+#.project
 .metadata
 /bin/**
 /tmp/**
@@ -29,8 +29,8 @@
 *.swp
 *~.nib
 local.properties
-.classpath
-.settings/**
+#.classpath
+#.settings/**
 .loadpath
 /src/main/resources/rebel.xml
 # External tool builders
@@ -135,3 +135,5 @@ build
 node_modules
 .gradle
 !/module-officesigner/src/main/java/vn/psvm/signserver/officesigner/ooxml/SignatureVerifier.java
+dist/**
+out/**
