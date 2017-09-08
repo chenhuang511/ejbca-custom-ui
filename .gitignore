@@ -135,3 +135,5 @@ build
 node_modules
 .gradle
 !/module-officesigner/src/main/java/vn/psvm/signserver/officesigner/ooxml/SignatureVerifier.java
+dist/**
+out/**
