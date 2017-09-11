@@ -460,7 +460,7 @@ function checkallfields(){
    } 
 -->
 </script>
-
+<link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
 <div align="center"> 
   <h2><c:out value="<%= ejbcawebbean.getText(\"EDITCERTIFICATEPROFILE\") %>" /></h2>
   <h3><c:out value="<%= ejbcawebbean.getText(\"CERTIFICATEPROFILE\")+ \" : \" + certprofile %>" /></h3>

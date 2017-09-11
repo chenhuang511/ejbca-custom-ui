@@ -19,14 +19,60 @@
 <head>
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+ 	  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <script src="adminweb/themes/libs/js/main.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <meta http-equiv="Content-Type" content="text/html; charset=<%= org.ejbca.config.WebConfiguration.getWebContentEncoding() %>" />
+  <style>
+  img {
+
+    margin-right: 3px;
+}
+label
+{
+    font-weight: 100 !important;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+input[type=checkbox] {
+
+    margin-right: 6px !important;
+}
+
+.formcontrol {
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	float: left; 
+	width: 250px; 
+	margin-right: 10px;
+}
+  </style>
 </head>
 
 <f:view>
 <body>
+<jsp:include page="/adminmenu.jsp" />
 
-<h1><h:outputText value="#{web.text.ACTIVATECAS}"/></h1>
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
+<h2><h:outputText value="#{web.text.ACTIVATECAS}"/></h2>
+</div>
+<div class="col-xs-8">
 
 	<h:form>
 	<h:dataTable border="0" value="#{cAActivationMBean.hasMessages}" var="item" style="right: auto; left: auto">
@@ -41,7 +87,7 @@
 	     	</h:column>
 	     </h:dataTable>
 	<div id="activation">
-	<h:dataTable styleClass="grid" value="#{cAActivationMBean.authorizedCAWrappers}" var="item" style="border-collapse: collapse; right: auto; left: auto">
+	<h:dataTable styleClass="table table-bordered" value="#{cAActivationMBean.authorizedCAWrappers}" var="item" style="border-collapse: collapse; right: auto; left: auto">
 	  			<h:column>
 	    			<f:facet name="header">
 	    				<h:outputText value="#{web.text.CA}" />
@@ -83,18 +129,14 @@
 			</div>
 
 			<div id="code">
-	           <h:outputText value="#{web.text.AUTHENTICATIONCODE}"></h:outputText>
-	           <h:inputSecret id="password" value="#{cAActivationMBean.authenticationCode}" />
-	           <h:commandButton id="submit" action="#{cAActivationMBean.apply}" value="#{web.text.APPLY}" />
+	          <label style="float: left; height: 34px; line-height: 34px; margin-right: 10px;"> <h:outputText value="#{web.text.AUTHENTICATIONCODE}"></h:outputText> </label>
+	           <h:inputSecret styleClass="formcontrol" id="password" value="#{cAActivationMBean.authenticationCode}" />
+	           <h:commandButton id="submit" styleClass="btn btn-danger" action="#{cAActivationMBean.apply}" value="#{web.text.APPLY}" />
 			</div>
 
 	 </h:form>
-
-	<%	// Include Footer 
-	String footurl = globalconfiguration.getFootBanner(); %>
-   
-	<jsp:include page="<%= footurl %>" />
-
+	 </div>
+  </section>
 </body>
 </f:view>
 </html>

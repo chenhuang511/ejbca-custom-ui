@@ -12,48 +12,41 @@
 <head>
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
-  <meta http-equiv="Content-Type" content="text/html; charset=<%= org.ejbca.config.WebConfiguration.getWebContentEncoding() %>" />
+  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <script src="adminweb/themes/libs/js/main.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">  <meta http-equiv="Content-Type" content="text/html; charset=<%= org.ejbca.config.WebConfiguration.getWebContentEncoding() %>" />
+
 </head>
 
-<body>
+<body id="header">
+ <jsp:include page="adminmenu.jsp" />
 
-<div align="right" style="text-weight: bold;">
-	<%= ejbcawebbean.getText("VERSION") + " " + GlobalConfiguration.EJBCA_VERSION %>
-<%	if ( ejbcawebbean.isUsingExportableCryptography() ) { %>
-	<div style="color: #FF0000; font-size: 0.7em;"><%= ejbcawebbean.getText("EXPORTABLE") %></div>
-<%	} %>
-	<noscript>
-	<div style="color: #FF0000; font-size: 0.7em;"><%= ejbcawebbean.getText("JAVASCRIPTDISABLED") %></div>
-	</noscript>
-</div> 
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
+<h2>Dashboard</h2> 
+</div>
+<div class="col-xs-8">
+	
 
-<h3 id="welcome"><%= ejbcawebbean.getText("WELCOME") + " "%> <c:out value="<%= ejbcawebbean.getUsersCommonName() %>"/> <%= " " + ejbcawebbean.getText("TOEJBCA")%></h3> 
 
-<div id="information">
+<div id="crls-item">
 	<div><%= ejbcawebbean.getText("NODEHOSTNAME") + " : "%><code><c:out value="<%= ejbcawebbean.getHostName()%>"/></code></div> 
 	<div><%= ejbcawebbean.getText("SERVERTIME") + " : "%><code><c:out value="<%= ejbcawebbean.getServerTime()%>"/></code></div>
-</div>
-
-<div id="home">
-   <table width="50%" align="top">
+   <table  class="table table-bordered">
    <tr>
-   
    <td>
 <%@ include file="statuspages/cacrlstatuses.jspf" %>
     </td>
-
    <td>
 <%@ include file="statuspages/publisherqueuestatuses.jspf" %>
     </td>
-    
     </tr>
     </table>
 </div>
-
-<% // Include Footer 
-   String footurl =   globalconfiguration.getFootBanner(); %>
-   
-  <jsp:include page="<%= footurl %>" />
+</div>
+</section>
 </body>
 </html>

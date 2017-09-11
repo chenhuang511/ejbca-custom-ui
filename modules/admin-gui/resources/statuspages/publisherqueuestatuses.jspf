@@ -11,7 +11,7 @@
 
 <div class="status" id="publishqueuestatus" >
 		<h4><%=ejbcawebbean.getText("PUBLISHERQUEUESTATUS")%> <%= ejbcawebbean.getHelpReference("/userguide.html#Publish%20queue%20status") %></h4>
-		<table border="1" cellspacing="2" cellpadding="3" width="100%" class="grid">
+		<table border="1" cellspacing="2" cellpadding="3" width="100%" class="table table-bordered">
 		<%	if(ejbcawebbean.getAdminPreference().getFrontpagePublisherQueueStatus()) { %>
 			<tr>
 				<th style="text-align:left;"><%=ejbcawebbean.getText("PUBLISHER")%></th>

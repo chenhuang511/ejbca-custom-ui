@@ -67,7 +67,12 @@
 <head>
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+ 	  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <script src="adminweb/themes/libs/js/main.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript" src="<%= globalconfiguration .getAdminWebPath() %>ejbcajslib.js"></script>
   <script type="text/javascript">
 <!--  
@@ -98,14 +103,14 @@ function getPasswordAndSubmit(formname) {
 </head>
 
 <body>
+ <jsp:include page="/adminmenu.jsp" />
+ <section id="content-one" class="container-fuild">
+<div class="col-xs-12">
+  <h2><%= ejbcawebbean.getText("CASTRUCTUREANDCRL") %></h2>
+  </div>
+  <div class="col-xs-8">
 
-  <h1><%= ejbcawebbean.getText("CASTRUCTUREANDCRL") %></h1>
 
-<!--  <div align="right"><A  onclick='displayHelpWindow("<%= ejbcawebbean.getHelpfileInfix("ca_help.html") %>")'>
-    <u><%= ejbcawebbean.getText("HELP") %></u> </A> 
-  </div> -->
-
-	<br />
   <% // Display CA info one by one.
      Iterator iter = canames.keySet().iterator();
      int number = 0;
@@ -120,10 +125,11 @@ function getPasswordAndSubmit(formname) {
        Certificate[] certificatechain = (Certificate[]) cainfo.getCertificateChain().toArray(new Certificate[0]);
        int chainsize = certificatechain.length;
  %>
+	<div class="crls-item">
        <H3><%= ejbcawebbean.getText("BASICFUNCTIONSFOR") + " : " + caname%> &nbsp; <a href="<%=THIS_FILENAME%>"  onClick="viewcacert(<%=caid%>)"><%= ejbcawebbean.getText("VIEWCERTIFICATE")%></a>&nbsp;&nbsp;
                                                                             <a href="<%=THIS_FILENAME%>"  onClick="viewcainfo(<%=caid%>)"><%= ejbcawebbean.getText("VIEWINFO")%></a></H3>    
  
-        <table> 
+        <table class="table table-bordered"> 
           <% int row = 0;
              for(int j = chainsize-1; j >= 0; j--){
                if(j == chainsize -1){              
@@ -231,7 +237,7 @@ function getPasswordAndSubmit(formname) {
 <input type='hidden' name='<%=HIDDEN_CASUBJECTDN + number %>' value="<%=subjectdn%>"> 
 <%=ejbcawebbean.getText("CREATENEWCRL") + " : " %>
        <% if ( (cainfo.getCAInfo().getStatus() == SecConst.CA_ACTIVE) && (cainfo.getCAInfo().getCATokenInfo().getCATokenStatus() == ICAToken.STATUS_ACTIVE) ) { %>
-<input type='submit' name='<%=BUTTON_CREATECRL + number %>' value='<%=ejbcawebbean.getText("CREATECRL") %>'>
+<input type='submit' class='btn btn-danger' name='<%=BUTTON_CREATECRL + number %>' value='<%=ejbcawebbean.getText("CREATECRL") %>'>
        <% }else{
            out.write(ejbcawebbean.getText("CAISNTACTIVE"));
           } 
@@ -240,7 +246,7 @@ function getPasswordAndSubmit(formname) {
 <input type='hidden' name='<%=HIDDEN_CASUBJECTDN + number %>' value="<%=subjectdn%>"> 
 <%=ejbcawebbean.getText("CREATENEWDELTACRL") + " : " %>
        <% if ( (cainfo.getCAInfo().getStatus() == SecConst.CA_ACTIVE) && (cainfo.getCAInfo().getCATokenInfo().getCATokenStatus() == ICAToken.STATUS_ACTIVE) ) { %>
-<input type='submit' name='<%=BUTTON_CREATEDELTACRL + number %>' value='<%=ejbcawebbean.getText("CREATEDELTACRL") %>'>
+<input type='submit' class='btn btn-danger' name='<%=BUTTON_CREATEDELTACRL + number %>' value='<%=ejbcawebbean.getText("CREATEDELTACRL") %>'>
        <% } else {
             out.write(ejbcawebbean.getText("CAISNTACTIVE"));
           }
@@ -249,16 +255,12 @@ function getPasswordAndSubmit(formname) {
 <%    } %>
 <br />
 <hr />
+</div>
 <% 
     number++;
-  }  %>
-   
-
-
-<% // Include Footer 
-   String footurl =  globalconfiguration.getFootBanner(); %>
-   
-  <jsp:include page="<%= footurl %>" />
+  }  %>   
 </form>
+</div>
+</section>
 </body>
 </html>

@@ -1,0 +1,264 @@
+body, ul, li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+}
+a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+td{
+    vertical-align: middle !important;
+}
+body, *{
+    font-size: 16px;
+}
+h2{
+    color: #000;
+}
+select[disabled]{
+    background: #ebebe4;
+}
+.fa-check{
+    color: #00c00e;
+    margin-right: 3px;
+}
+
+header{
+    height: 80px;
+    margin-top: 20px;
+}
+header .logo img{
+    height: 80px;
+}
+header .nav{
+    height: 80px;
+    line-height: 80px;
+    text-align: right;
+}
+header .nav a{
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+}
+header .nav a:hover{
+    text-decoration: none;
+}
+
+
+
+/* end */
+
+#cat4, #cat9, #cat10, #cat8{ display:none}
+#menu{
+    height: 52px;
+    margin-top: 20px;
+}
+#menu .main-menu{
+    background: #e1e1e1;
+    height: 52px;
+    padding: 0;
+    margin: 0 15px;
+    width: calc(100% - 30px);
+    border: 1px solid #a7a7a7;
+    border-radius: 5px;
+}
+#menu li{
+    float: left;
+    border-right: 1px solid #a7a7a7;
+}
+#menu li a{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+}
+#menu li a:hover{
+    text-decoration: none;
+    color: #fff;
+    background: #d00a07;
+    display: block;
+}
+#menu li strong{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+}
+#menu li strong:hover{
+    text-decoration: none;
+    color: #fff;
+    background: #d00a07;
+    display: block;
+}
+
+#menu li ul{
+    background: #fff;
+    display: none;
+    position: absolute;
+    height: 50px;
+    z-index: 9999;
+    
+}
+#menu li:hover ul{
+    display: block;
+}
+#menu li ul li{
+    border: 1px solid #a7a7a7 !important;
+    border-bottom: 0 !important;
+    border: 0;
+    background: #fff;
+    width: 230px;
+    clear: both;
+}
+#menu li ul li:last-child{
+   border-bottom: 1px solid #a7a7a7 !important; 
+}
+#menu li ul li a{
+    display: block;
+}
+/* end */
+#brc{
+    margin-top: 20px;
+}
+#brc .main-brc{
+    height: 50px;
+}
+#brc li{
+    float: left;
+    height: 50px;
+    border-top: 1px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+}
+#brc li img{
+    height: 38px;
+    padding: 0px 10px;
+    margin-top: 3px;
+}
+#brc li:last-child{
+    border-right: 1px solid #a7a7a7;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#brc li:first-child{
+    border-left: 1px solid #a7a7a7;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#brc li a{
+    height: 50px;
+    padding: 0 10px;
+    line-height: 50px;
+    color: #000000;
+}
+#brc li a:hover{
+    text-decoration: none;
+}
+
+
+/* enroll */
+#content-enroll{
+    position: absolute;
+    height: calc(100vh - 172px);
+    width: 100%;
+    background: url(../img/bg-annd.png) no-repeat right bottom;
+    background-size: cover;
+}
+#content-enroll .col-xs-12:first-child{
+    padding-top: 8%;
+}
+#content-enroll .col-xs-12 h3, p{
+    font-weight: 600;
+}
+
+/* enroll create */
+#content-enroll-create{
+    position: absolute;
+    height: calc(100vh - 172px);
+    width: 100%;
+    background: url(../img/bg-annd.png) no-repeat right bottom;
+    background-size: cover;
+}
+#content-enroll-create h3{
+    margin-top: 5%;
+}
+#content-enroll-create .input-item{
+    margin-bottom: 10px;
+    position: relative;
+}
+#content-enroll-create .input-item input[type=text]{
+    padding-left: 25px;
+    font-weight: 600;
+}
+#content-enroll-create .input-item .aut{
+    color: #2a00ae;
+    background: #cfcfcf;
+    font-size: 16px;
+    font-weight: 600;
+}
+#content-enroll-create .input-item i.fa{
+    width: 15px;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    color: #aeaeae;
+    top: 8px;
+    left: 5px;
+}
+
+
+/* systemfunctions */
+#systemfunctions{
+    
+}
+#systemfunctions p{
+    font-weight: normal;
+    font-size: 14px;
+}
+tr.bld{
+    background: #eae9e9;
+}
+#systemfunctions table tr select.mut option{
+    width: 500px;
+}
+#systemfunctions input[type=text]{
+    width: 400px;
+}
+#txtaddnote{
+    width: 300px !important;
+}
+
+
+/*  */
+.ppCertificate, .ppInformation{
+    font-size: 20px;
+    padding-left: 15px;
+}
+.crls-item{
+    border-bottom: 1px solid #ccc;
+}
+.bg-yl{
+    background: #FEDD9A;
+}
+.tbl-basic{
+    display: none;
+}
+.tbl-search a{
+    color: #000000;
+    font-weight: 600;
+}
+.tbl-search .lview{
+    font-size: 14px;
+    display: block;
+    color: darkblue;
+}
+.tbl-search{
+    display: none;
+}

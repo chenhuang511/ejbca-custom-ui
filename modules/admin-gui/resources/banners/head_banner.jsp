@@ -11,12 +11,22 @@
 <head>
     <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
 	<base href="<%= ejbcawebbean.getBaseUrl() %>" />
-	<link rel="stylesheet" type="text/css" media="all" href="<%= ejbcawebbean.getCssFile() %>" />
+	  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <script src="adminweb/themes/libs/js/main.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
 </head>
 
-<body id="header">
-	<div id="banner">
-		<a href="<%= ejbcawebbean.getBaseUrl() + globalconfiguration.getAdminWebPath() %>" target="_top"><img src="<%= ejbcawebbean.getImagefileInfix("banner_"+org.ejbca.config.InternalConfiguration.getAppNameLower()+"-admin.png") %>" alt="<c:out value="<%= globalconfiguration.getEjbcaTitle() %>" />" /></a>
-	</div>
+<body>
+<header class="container-fuild">
+        <div class="col-xs-5 logo">
+            <a href="#"><img src="adminweb/themes/libs/img/logo.png" alt=""></a>
+        </div>
+        <div class="col-xs-7 nav">
+            <a href="<%=ejbcawebbean.getBaseUrl() + globalconfiguration.getAdminWebPath() + "logout" %>">Logout</a>
+        </div>
+    </header>
 </body>
 </html>

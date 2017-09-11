@@ -12,15 +12,14 @@
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
   <link rel="shortcut icon" href="<%=ejbcawebbean.getImagefileInfix("favicon.png")%>" type="image/png" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
   <meta http-equiv="Content-Type" content="text/html; charset=<%= org.ejbca.config.WebConfiguration.getWebContentEncoding() %>" />
 </head>
-
+ 
 <frameset rows="100,*" cols="*" frameborder="NO" border="0" framespacing="0"> 
   <frame name="<%= globalconfiguration.HEADERFRAME %>" scrolling="NO" noresize src="<%= globalconfiguration.getHeadBanner() %>" >
-  <frameset cols="250,*" frameborder="NO" border="0" framespacing="0" rows="*"> 
-    <frame name="<%= globalconfiguration.MENUFRAME %>" noresize scrolling="NO" src="<%= globalconfiguration.getAdminWebPath() +
-                                                                                        globalconfiguration.getMenuFilename() %>">
+
+  <frameset  cols="*" frameborder="NO" border="0" framespacing="0" rows="*"> 
+ 
     <frame name="<%= globalconfiguration.MAINFRAME %>" src="<%= globalconfiguration.getAdminWebPath() + globalconfiguration.getMainFilename() %>">
   </frameset>
 </frameset>

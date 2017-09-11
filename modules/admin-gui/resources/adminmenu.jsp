@@ -5,7 +5,7 @@
                                           org.ejbca.core.model.authorization.AuthorizationDeniedException,
                                           org.ejbca.core.model.authorization.AccessRulesConstants"%>
 
-<%@page import="org.ejbca.config.WebConfiguration"%><html>
+<%@page import="org.ejbca.config.WebConfiguration"%>
 <jsp:useBean id="ejbcawebbean" scope="session" class="org.ejbca.ui.web.admin.configuration.EjbcaWebBean" />
 <jsp:setProperty name="ejbcawebbean" property="*" /> 
 <% 
@@ -90,18 +90,12 @@
   boolean systemheaderprinted =false;
 
 %>
-<head>
-  <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
-  <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
-  <!--[if IE]><link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getIeFixesCssFile() %>" /><![endif]-->
-  <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
-</head>
 
-<body id="menu">
 
-	<div id="navigation">
-	<ul>
+<section id="menu" class="container-fuild">
+
+	<div class="col-xs-12 main-menu">
+	<ul style= "width:100%">
 
 <% // If authorized to use the main page then display related links.
    try{
@@ -366,5 +360,5 @@
 	</ul>
 	</div><!-- id="navigation" -->
 
-</body>
-</html>
+  </section>
+

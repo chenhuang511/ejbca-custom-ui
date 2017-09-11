@@ -3,12 +3,33 @@
 
 %>
 
+<style>
+select, .formcontrol {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+</style>
 
-<h1><%= ejbcawebbean.getText("MANAGECERTIFICATEPROFILES") %></h1>
 
-<!-- <a onclick='displayHelpWindow("<%= ejbcawebbean.getHelpfileInfix("ca_help.html") + "#certificateprofiles"%>")'>
-    <u><%= ejbcawebbean.getText("HELP") %></u> </a> -->
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
+<h2><%= ejbcawebbean.getText("MANAGECERTIFICATEPROFILES") %></h2> 
+</div>
 
+
+
+<div class="col-xs-8">
 <form name="editcertificateprofiles" method="post"  action="<%= THIS_FILENAME%>">
 
   <input type="hidden" name='<%= ACTION %>' value='<%=ACTION_EDIT_CERTIFICATEPROFILES %>'>
@@ -143,14 +164,12 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td align="left">
-              <input type="submit" name="<%= BUTTON_EDIT_CERTIFICATEPROFILES %>" value="<%= ejbcawebbean.getText("EDITCERTIFICATEPROFILE") %>">
-            </td>
-            <td align="center">
+			  <div style="margin-top: 10px;"> 
+              <input class="btn btn-sm btn-danger" type="submit" name="<%= BUTTON_EDIT_CERTIFICATEPROFILES %>" value="<%= ejbcawebbean.getText("EDITCERTIFICATEPROFILE") %>">
               &nbsp;
-            </td>
-            <td align="right">
-              <input class=buttonstyle type="submit" onClick="return confirm('<%= ejbcawebbean.getText("AREYOUSURE",true) %>');" name="<%= BUTTON_DELETE_CERTIFICATEPROFILES %>" value="<%= ejbcawebbean.getText("DELETECERTIFICATEPROFILE") %>">
-            </td>
+              <input class="buttonstyle btn btn-sm btn-danger" type="submit" onClick="return confirm('<%= ejbcawebbean.getText("AREYOUSURE",true) %>');" name="<%= BUTTON_DELETE_CERTIFICATEPROFILES %>" value="<%= ejbcawebbean.getText("DELETECERTIFICATEPROFILE") %>">
+            </div>
+			</td>
           </tr>
         </table> 
       </td>
@@ -164,13 +183,16 @@
     </tr>
     <tr> 
       <td width="100%"> 
-        <input type="text" name="<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>" size="40" maxlength="255" title="<%= ejbcawebbean.getText("FORMAT_ID_STR") %>">
-        <input type="submit" name="<%= BUTTON_ADD_CERTIFICATEPROFILES%>" onClick='return checkfieldforlegalchars("document.editcertificateprofiles.<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>","<%= ejbcawebbean.getText("ONLYCHARACTERS") %>")' value="<%= ejbcawebbean.getText("ADD") %>">&nbsp;&nbsp;&nbsp;
-        <input type="submit" name="<%= BUTTON_RENAME_CERTIFICATEPROFILES%>" onClick='return checkfieldforlegalchars("document.editcertificateprofiles.<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>","<%= ejbcawebbean.getText("ONLYCHARACTERS") %>")' value="<%= ejbcawebbean.getText("RENAME") %>">&nbsp;&nbsp;&nbsp;
-        <input type="submit" name="<%= BUTTON_CLONE_CERTIFICATEPROFILES%>" onClick='return checkfieldforlegalchars("document.editcertificateprofiles.<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>","<%= ejbcawebbean.getText("ONLYCHARACTERS") %>")' value="<%= ejbcawebbean.getText("USESELECTEDASTEMPLATE") %>">
+        <input type="text" class="formcontrol" style="height: 30px;"  name="<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>" size="40" maxlength="255" title="<%= ejbcawebbean.getText("FORMAT_ID_STR") %>">
+       &nbsp; &nbsp; &nbsp;
+	    <input type="submit"  class="btn btn-sm btn-danger" name="<%= BUTTON_ADD_CERTIFICATEPROFILES%>" onClick='return checkfieldforlegalchars("document.editcertificateprofiles.<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>","<%= ejbcawebbean.getText("ONLYCHARACTERS") %>")' value="<%= ejbcawebbean.getText("ADD") %>">&nbsp;&nbsp;&nbsp;
+           &nbsp; &nbsp; &nbsp;
+		<input type="submit"  class="btn btn-sm btn-danger" name="<%= BUTTON_RENAME_CERTIFICATEPROFILES%>" onClick='return checkfieldforlegalchars("document.editcertificateprofiles.<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>","<%= ejbcawebbean.getText("ONLYCHARACTERS") %>")' value="<%= ejbcawebbean.getText("RENAME") %>">&nbsp;&nbsp;&nbsp;
+           &nbsp; &nbsp; &nbsp;
+		<input type="submit"  class="btn btn-sm btn-danger" name="<%= BUTTON_CLONE_CERTIFICATEPROFILES%>" onClick='return checkfieldforlegalchars("document.editcertificateprofiles.<%=TEXTFIELD_CERTIFICATEPROFILESNAME%>","<%= ejbcawebbean.getText("ONLYCHARACTERS") %>")' value="<%= ejbcawebbean.getText("USESELECTEDASTEMPLATE") %>">
       </td>
     </tr>
   </table>
 
 </form>
-
+</div>
