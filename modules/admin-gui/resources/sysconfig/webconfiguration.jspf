@@ -15,8 +15,6 @@
 	href="adminweb/themes/libs/css/font-awesome.min.css">
 <script src="adminweb/themes/libs/js/main.js" type="text/javascript"></script>
 <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=ejbcawebbean.getCssFile()%>" />
 <script type="text/javascript"
 	src="<%=globalconfiguration.getAdminWebPath()%>ejbcajslib.js"></script>
 <script type="text/javascript">
@@ -58,10 +56,28 @@ function checkuseautoenroll(){
 -->
   </script>
 </head>
+<style>
+  #cat7{
+  text-decoration: none !important;
 
+  background: #d00a07 !important;
+  display: block !important;
+  }
+  #cat7 strong
+  {
+  color: #fff !important;
+  }
+</style>
 <body>
 	<jsp:include page="/adminmenu.jsp" />
 	<section id="systemfunctions" class="container-fuild">
+	  <div class="col-xs-12">
+       <div id="brc">
+      <li><a href="/annd/adminweb/main.jsp" target="mainFrame">Home</a></li>
+       <li><img src="/annd/adminweb/themes/libs/img/icon.png"></li>
+	      <li><a>System Configuration</a></li>
+         </div>
+      </div>
 		<div class="col-xs-12">
 			<h2>
 				<c:out value="<%=ejbcawebbean.getText(\"SYSTEMCONFIGURATION\")%>" />
@@ -333,7 +349,7 @@ function checkuseautoenroll(){
             <% } %>
                            </select>
                         </div>
-                        <div style="margin-bottom: 20px;">
+                        <div style="margin-bottom: 20px;  margin-top: 10px">
                             <button class="btn btn-sm btn-danger btn-remove" type="submit" name="<%=BUTTON_NODES_REMOVE %>"><c:out value="<%= ejbcawebbean.getText(\"REMOVENODESINCLUSTER\") %>"/></button></div>
                         <div>
                             <label><c:out value="<%= ejbcawebbean.getText(\"ADDNODEINCLUSTER\") %>"/>:</label>

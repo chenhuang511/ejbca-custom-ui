@@ -1175,6 +1175,16 @@ table.edit-top tr:first-child td, table.edit tr:first-child td, table.edit-botto
     border-top: 3px solid #FEDD9A !important;
     color: #A00 !important;
 }
+#cat2{
+    text-decoration: none !important;
+ 
+    background: #d00a07 !important;
+    display: block !important;
+}
+#cat2 strong
+{
+   color: #fff !important;
+}
 </style>
 <body onload='<% if(usehardtokenissuers) out.write("setAvailableHardTokenIssuers();");
                  if(usekeyrecovery) out.write(" isKeyRecoveryPossible();");%>
@@ -1183,6 +1193,13 @@ table.edit-top tr:first-child td, table.edit tr:first-child td, table.edit-botto
 
 
  <section id="content-one" class="container-fuild">
+ <div class="col-xs-12">
+       <div id="brc">
+      <li><a href="/annd/adminweb/main.jsp" target="mainFrame">Home</a></li>
+       <li><img src="/annd/adminweb/themes/libs/img/icon.png"></li>
+	  <li><a>Add End Entity</a></li>
+         </div>
+      </div>
 <div class="col-xs-12">
   <h2><c:out value="<%= ejbcawebbean.getText(\"ADDENDENTITY\") %>"/></h2>
   </div>

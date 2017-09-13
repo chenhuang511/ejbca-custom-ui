@@ -2,7 +2,11 @@
 <head>
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+    <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+      <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
   <script type="text/javascript">
 <!--
@@ -38,11 +42,46 @@ function viewcert(row){
 -->
 </script>
 </head>
+<style>
+  td{
+  vertical-align: unset !important;
+  }
+  table.search tr td {
+  padding: .25em .5em .1em 0em;
+  line-height: 1.75em;
+  }
+  default_theme.css:350
+  table th, table td {
+  margin: 0px;
+  padding: 2px 3px;
+  border: none;
+  vertical-align: top;
+  }
+  #cat4{
+  text-decoration: none !important;
 
+  background: #d00a07 !important;
+  display: block !important;
+  }
+  #cat4 strong
+  {
+  color: #fff !important;
+  }
+</style>
 <body>
-
-<h1><c:out value="<%= ejbcawebbean.getText(\"VIEWLOG\") %>" /> <%= ejbcawebbean.getHelpReference("/userguide.html#View%20Log%20options") %></h1>
-
+  <jsp:include page="//adminmenu.jsp" />
+  <section id="content-one" class="container-fuild">
+    <div class="col-xs-12">
+       <div id="brc">
+      <li><a href="/annd/adminweb/main.jsp" target="mainFrame">Home</a></li>
+       <li><img src="/annd/adminweb/themes/libs/img/icon.png"></li>
+	      <li><a>View Log</a></li>
+         </div>
+      </div>
+    <div class="col-xs-12">
+    <h2><c:out value="<%= ejbcawebbean.getText(\"VIEWLOG\") %>" /> <%= ejbcawebbean.getHelpReference("/userguide.html#View%20Log%20options") %></h2>
+    </div>
+    <div class="col-xs-12">
   <form name="changefiltermode" method="post" action="<%=THIS_FILENAME %>">
     <div align="right">
      <% if(filtermode == AdminPreference.FILTERMODE_BASIC){ %>
@@ -154,7 +193,7 @@ function viewcert(row){
      </select>  
 
     &nbsp;
-    <input type="submit" name="<%=BUTTON_VIEWLAST %>" value='<c:out value="<%= ejbcawebbean.getText(\"VIEW\") %>"/>'>
+    <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_VIEWLAST %>" value='<c:out value="<%= ejbcawebbean.getText(\"VIEW\") %>"/>'>
   </p>
      <% }
         if(filtermode == AdminPreference.FILTERMODE_ADVANCED){ %>
@@ -173,9 +212,9 @@ function viewcert(row){
      <div class="message alert"><c:out value="<%= ejbcawebbean.getText(\"EXPORTCMSSERVICENOTACTIVE\") %>" /></div>
   <% } %>
   <p>
-    <input type="submit" name="<%=BUTTON_RELOAD %>" value='<c:out value="<%= ejbcawebbean.getText(\"RELOAD\") %>"/>'>
+    <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_RELOAD %>" value='<c:out value="<%= ejbcawebbean.getText(\"RELOAD\") %>"/>'>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" name="<%=BUTTON_EXPORTCSV %>" value='<c:out value="<%= ejbcawebbean.getText(\"EXPORTCSV\") %>"/>'>
+    <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_EXPORTCSV %>" value='<c:out value="<%= ejbcawebbean.getText(\"EXPORTCSV\") %>"/>'>
     <c:out value="<%= ejbcawebbean.getText(\"EXPORTSIGNWITHCA\") %>" />
       <select name="<%=SELECT_SIGNCSVCA %>" >
         <option  value=''><c:out value="<%=SELECT_EMPTYVALUE%>" /></option>
@@ -207,14 +246,14 @@ function viewcert(row){
     <tr> 
       <td width="14%"> 
         <% if(logbean.previousButton(record)){ %>
-          <input type="submit" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
+          <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
         <% } %>
       </td>
       <td width="76%">&nbsp; </td>
       <td width="10%"> 
         <div align="right">
         <% if(logbean.nextButton(record,size)){ %>
-          <input type="submit" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
+          <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
         <% } %>
         </div>
       </td>
@@ -392,7 +431,7 @@ function viewcert(row){
     <tr>
       <td width="14%">
         <% if(logbean.previousButton(record)){ %>
-          <input type="submit" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
+          <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
         <% } %>
       </td>
       <td width="76%"> 
@@ -401,7 +440,7 @@ function viewcert(row){
       <td width="10%"> 
         <div align="right">
         <% if(logbean.nextButton(record,size)){ %>
-          <input type="submit" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
+          <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
         <% } %>
         </div>
       </td>
@@ -419,11 +458,7 @@ function viewcert(row){
      </select>  
     </div>
 
-  </form> 
-
-
-  <%// Include Footer 
-   String footurl =   globalconfiguration.getFootBanner(); %>
-   
-  <jsp:include page="<%= footurl %>" />
+  </form>
+    </div>
+  </section>
 </body>

@@ -170,7 +170,18 @@
   <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript" src="<%= globalconfiguration .getAdminWebPath() %>ejbcajslib.js"></script>
 </head>
-
+<style>
+#cat1{
+    text-decoration: none !important;
+    color: #fff !important;
+    background: #d00a07 !important;
+    display: block !important;
+}
+#cat1 strong
+{
+   color: #fff !important;
+}
+  </style>
 <body>
  <jsp:include page="//adminmenu.jsp" />
 <%

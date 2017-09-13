@@ -28,8 +28,27 @@ table.edit-top tr:first-child td, table.edit tr:first-child td, table.edit-botto
     border-top: 3px solid #FEDD9A !important;
     color: #A00 !important;
 }
+#cat2{
+    text-decoration: none !important;
+ 
+    background: #d00a07 !important;
+    display: block !important;
+}
+#cat2 strong
+{
+   color: #fff !important;
+}
 </style>
 <section id="content-one" class="container-fuild">
+<div class="col-xs-12">
+       <div id="brc">
+      <li><a href="/annd/adminweb/main.jsp" target="mainFrame">Home</a></li>
+       <li><img src="/annd/adminweb/themes/libs/img/icon.png"></li>
+	  <li><a href="/annd/adminweb/ra/editendentityprofiles/editendentityprofiles.jsp" target="mainFrame">Manage End Entity Profiles</a></li>
+	   <li><img src="/annd/adminweb/themes/libs/img/icon.png"></li>
+	  <li><a>Upload User Data Template</a></li>
+       </div>
+      </div>
 <div class="col-xs-12">
    <h2><%= ejbcawebbean.getText("UPLOADUSERDATATEMP") %></h2>
    <h3><%= ejbcawebbean.getText("ENDENTITYPROFILE")+ " : "%> <c:out value="<%= profile %>"/></h3>

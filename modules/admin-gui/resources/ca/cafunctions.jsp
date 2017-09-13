@@ -102,9 +102,30 @@ function getPasswordAndSubmit(formname) {
   </script>
 </head>
 
+<style>
+#cat1{
+    text-decoration: none !important;
+    color: #fff !important;
+    background: #d00a07 !important;
+    display: block !important;
+}
+#cat1 strong
+{
+   color: #fff !important;
+}
+</style>
 <body>
  <jsp:include page="/adminmenu.jsp" />
  <section id="content-one" class="container-fuild">
+
+
+   <div class="col-xs-12">
+          <div id="brc">
+      <li><a href="/annd/adminweb/main.jsp" target="mainFrame">Home</a></li>
+         <li><img src="/annd/adminweb/themes/libs/img/icon.png"></li>
+       <li><a>CA Structure &amp; CRLs</a></li>
+         </div>
+      </div>
 <div class="col-xs-12">
   <h2><%= ejbcawebbean.getText("CASTRUCTUREANDCRL") %></h2>
   </div>
