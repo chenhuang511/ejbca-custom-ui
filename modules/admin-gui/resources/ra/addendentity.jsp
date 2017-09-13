@@ -731,7 +731,11 @@
 <head>
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+ <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript">
 
   <% if(!noprofiles){ %>
@@ -1160,16 +1164,29 @@ function checkallfields(){
   </script>
   <script type="text/javascript" src="<%= globalconfiguration .getAdminWebPath() %>ejbcajslib.js"></script>
 </head>
+</script>
 
+<style>
+#Row0 {
+background: #eae9e9;
+}
+table.edit-top tr:first-child td, table.edit tr:first-child td, table.edit-bottom tr.section td, table.edit tr.section td {
+    background-color: #FEEECD !important;
+    border-top: 3px solid #FEDD9A !important;
+    color: #A00 !important;
+}
+</style>
 <body onload='<% if(usehardtokenissuers) out.write("setAvailableHardTokenIssuers();");
                  if(usekeyrecovery) out.write(" isKeyRecoveryPossible();");%>
                  fillCAField();'>
+ <jsp:include page="//adminmenu.jsp" />
 
-  <h1><c:out value="<%= ejbcawebbean.getText(\"ADDENDENTITY\") %>"/></h1>
 
-  <!-- <div align="right"><a onclick='displayHelpWindow("<%= ejbcawebbean.getHelpfileInfix("ra_help.html") + "#addendentity"%>")'><c:out value="<%= ejbcawebbean.getText(\"HELP\") %>"/></a> 
-  </div> -->
-
+ <section id="content-one" class="container-fuild">
+<div class="col-xs-12">
+  <h2><c:out value="<%= ejbcawebbean.getText(\"ADDENDENTITY\") %>"/></h2>
+  </div>
+  <div class="col-xs-8">
   <% if(noprofiles){ %>
     <div class="message alert"><c:out value="<%=ejbcawebbean.getText(\"NOTAUTHORIZEDTOCREATEENDENTITY\") %>"/></div>
   <% }else{
@@ -1188,7 +1205,7 @@ function checkallfields(){
   <% } %>
 
 
-     <table class="edit" id="addendentity" border="0" cellpadding="0" cellspacing="2">
+     <table class="edit table table-bordered" id="addendentity" border="0" cellpadding="0" cellspacing="2">
        <form name="changeprofile" action="<%= THIS_FILENAME %>" method="post">
        <input type="hidden" name='<%= ACTION %>' value='<%=ACTION_CHANGEPROFILE %>'>
 
@@ -1963,10 +1980,10 @@ function checkallfields(){
 	  <td  align="right">
 	    &nbsp;
 	  </td>
-	  <td><input type="submit" name="<%= BUTTON_ADDUSER %>" value='<c:out value="<%= ejbcawebbean.getText(\"ADD\") %>"/>' tabindex="<%=tabindex++%>"
+	  <td><input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_ADDUSER %>" value='<c:out value="<%= ejbcawebbean.getText(\"ADD\") %>"/>' tabindex="<%=tabindex++%>"
 				onClick='return checkallfields()'>
           &nbsp;&nbsp;&nbsp;
-		  <input type="reset" name="<%= BUTTON_RESET %>" value='<c:out value="<%= ejbcawebbean.getText(\"RESET\") %>"/>' tabindex="<%=tabindex++%>"></td>
+		  <input type="reset"  class="btn btn-sm btn-danger" name="<%= BUTTON_RESET %>" value='<c:out value="<%= ejbcawebbean.getText(\"RESET\") %>"/>' tabindex="<%=tabindex++%>"></td>
 	  <td>&nbsp;</td>
 	</tr>
 
@@ -2006,9 +2023,9 @@ function edituser(row){
   <% } else{ %>
   <div class="message info"><c:out value="<%= ejbcawebbean.getText(\"PREVIOUSLYADDEDENDENTITIES\") %>"/></div>
   <p>
-    <input type="submit" name="<%=BUTTON_RELOAD %>" value='<c:out value="<%= ejbcawebbean.getText(\"RELOAD\") %>"/>'>
+    <input type="submit" class="btn btn-sm btn-danger"  name="<%=BUTTON_RELOAD %>" value='<c:out value="<%= ejbcawebbean.getText(\"RELOAD\") %>"/>'>
   </p>
-  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+  <table class="table table-bordered" width="100%" border="0" cellspacing="1" cellpadding="0">
   <tr> 
     <td width="10%"><c:out value="<%= ejbcawebbean.getText(\"USERNAME_ABBR\") %>"/>              
     </td>
@@ -2047,11 +2064,8 @@ function edituser(row){
   </table>
  <%    }
      }%>
-  </form>
-
-  <%// Include Footer 
-   String footurl =   globalconfiguration .getFootBanner(); %>
-   
-  <jsp:include page="<%= footurl %>" />
+  </form> 
+  </div>
+  </section> 
 </body>
 </html>

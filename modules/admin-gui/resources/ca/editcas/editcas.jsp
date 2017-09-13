@@ -235,11 +235,13 @@
 <head>
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
 </head>
-
-
 <%
   RequestHelper.setDefaultCharacterEncoding(request);
 
@@ -1719,13 +1721,9 @@
 <%}
   if( includefile.equals("importcacert.jspf")){ %>
    <%@ include file="importcacert.jspf" %> 
-<%}
-
-
-   // Include Footer 
-   String footurl =   globalconfiguration.getFootBanner(); %>
+<%} %>
    
-  <jsp:include page="<%= footurl %>" />
+
 
 </body>
 </html>

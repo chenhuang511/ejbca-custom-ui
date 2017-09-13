@@ -256,14 +256,14 @@
 			logheaderprinted = true;%>
 		<li id="cat4" class="section"><strong><%=ejbcawebbean.getText("NAV_SUPERVISIONFUNCTIONS") %></strong>
 			<ul>
-				<li><a href="<%= APPROVAL_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_APPROVEACTIONS") %></a></li>
+			<!--	<li><a href="<%= APPROVAL_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_APPROVEACTIONS") %></a></li> -->
 <%      }
    
     // If authorized to view log then display related links.
     try{
       if(ejbcawebbean.isAuthorizedNoLog(LOGVIEW_RESOURCE)){
             if(!logheaderprinted){
-              out.write("<li id=\"cat4\" class=\"section\"><strong>" + ejbcawebbean.getText("NAV_SUPERVISIONFUNCTIONS")+"</strong><ul>"); 
+             out.write("<li id=\"cat4\" class=\"section\"><strong>" + ejbcawebbean.getText("NAV_SUPERVISIONFUNCTIONS")+"</strong><ul>"); 
               logheaderprinted=true;
             }  %>
 				<li><a href="<%= LOG_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_VIEWLOG") %></a></li>
@@ -274,10 +274,10 @@
    try{
      if(ejbcawebbean.isAuthorizedNoLog(LOGCONFIGURATION_RESOURCE)){ 
             if(!logheaderprinted){
-              out.write("<li id=\"cat4\" class=\"section\"><strong>" + ejbcawebbean.getText("NAV_SUPERVISIONFUNCTIONS")+"</strong><ul>"); 
+            out.write("<li id=\"cat4\" class=\"section\"><strong>" + ejbcawebbean.getText("NAV_SUPERVISIONFUNCTIONS")+"</strong><ul>"); 
               logheaderprinted=true;
             }  %>
-				<li><a href="<%= LOG_CONFIGURATION_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_LOGCONFIGURATION") %></a></li>
+					<!-- <li><a href="<%= LOG_CONFIGURATION_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_LOGCONFIGURATION") %></a></li> -->
 <%   }
    }catch(AuthorizationDeniedException e){}
 
@@ -306,7 +306,7 @@
          out.write("<li id=\"cat7\" class=\"section\"><strong>" + ejbcawebbean.getText("NAV_SYSTEMFUNCTIONS")+"</strong><ul>"); 
          systemheaderprinted=true;
          }  %>
-				<li><a href="<%= SERVICES_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_SERVICES") %></a></li>
+				<!-- <li><a href="<%= SERVICES_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_SERVICES") %></a></li>-->
 <%   }
   }catch(AuthorizationDeniedException e){} 
 
@@ -317,14 +317,14 @@
           out.write("<li id=\"cat7\" class=\"section\"><strong>" + ejbcawebbean.getText("NAV_SYSTEMFUNCTIONS")+"</strong><ul>"); 
           systemheaderprinted=true;
           }  %>
-				<li><a href="<%= ADMINISTRATORPRIV_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_ADMINISTRATORGROUPS") %></a></li>
+				<!-- <li><a href="<%= ADMINISTRATORPRIV_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_ADMINISTRATORGROUPS") %></a></li>-->
 <%   }
    }catch(AuthorizationDeniedException e){}
 
     // If authorized to edit user preferences then display related links.
     try{
       if(ejbcawebbean.isAuthorizedNoLog(MAIN_RESOURCE)){ %>
-				<li><a href="<%= MYPREFERENCES_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_MYPREFERENCES") %></a></li>
+			<!-- <li><a href="<%= MYPREFERENCES_LINK %>" target="<%=GlobalConfiguration.MAINFRAME %>"><%=ejbcawebbean.getText("NAV_MYPREFERENCES") %></a></li> -->
 <%   }
    }catch(AuthorizationDeniedException e){
    //     throw new AuthorizationDeniedException();

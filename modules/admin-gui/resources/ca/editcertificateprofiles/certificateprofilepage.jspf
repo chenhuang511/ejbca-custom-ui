@@ -460,16 +460,24 @@ function checkallfields(){
    } 
 -->
 </script>
-<link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
-<div align="center"> 
-  <h2><c:out value="<%= ejbcawebbean.getText(\"EDITCERTIFICATEPROFILE\") %>" /></h2>
+<style>
+#Row0 {
+background: #eae9e9;
+}
+</style>
+
+
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
+ <h2><c:out value="<%= ejbcawebbean.getText(\"EDITCERTIFICATEPROFILE\") %>" /></h2>
   <h3><c:out value="<%= ejbcawebbean.getText(\"CERTIFICATEPROFILE\")+ \" : \" + certprofile %>" /></h3>
 </div>
 
+<div class="col-xs-12">
 <form name="editcertificateprofile" method="post" action="<%=THIS_FILENAME %>">
   <input type="hidden" name='<%= ACTION %>' value='<%=ACTION_EDIT_CERTIFICATEPROFILE %>'>
   <input type="hidden" name='<%= HIDDEN_CERTIFICATEPROFILENAME %>' value='<c:out value="<%=certprofile %>"/>'>
-  <table class="edit" width="100%" border="0" cellspacing="3" cellpadding="3">
+  <table class="edit table table-bordered" width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr id="Row<%=row++%2%>"> 
       <td width="50%" valign="top"> 
         <div align="left"> 
@@ -1058,7 +1066,7 @@ function checkallfields(){
            %>
     <tr id="Row<%=row%2%>">
       <td width="50%" align="right">
-            <input type="submit" name="<%= BUTTON_DELETE_POLICY + i %>" value="<%= ejbcawebbean.getText("DELETE") %>"/>
+            <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_DELETE_POLICY + i %>" value="<%= ejbcawebbean.getText("DELETE") %>"/>
             &nbsp;&nbsp;&nbsp;
             <c:out value="<%= ejbcawebbean.getText(\"EXT_PKIX_CP_POLICYID\") %>" />
       </td>
@@ -1088,7 +1096,7 @@ function checkallfields(){
     <%-- Editable policy input form section --%>
     <tr id="Row<%=row%2%>">
       <td width="50%" align="right">
-            <input type="submit" name="<%= BUTTON_ADD_POLICY %>" value="<%= ejbcawebbean.getText("ADD") %>" <%=certificateprofiledata.getUseCertificatePolicies() ? "" : "disabled"%>/>
+            <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_ADD_POLICY %>" value="<%= ejbcawebbean.getText("ADD") %>" <%=certificateprofiledata.getUseCertificatePolicies() ? "" : "disabled"%>/>
             &nbsp;&nbsp;&nbsp;
             <c:out value="<%= ejbcawebbean.getText(\"EXT_PKIX_CP_POLICYID\") %>" />
       </td>
@@ -1168,7 +1176,7 @@ function checkallfields(){
            %>
     <tr id="Row<%=row%2%>">
       <td width="50%" align="right">
-            <input type="submit" name="<%= BUTTON_DELETE_CAISSUERURI + i %>" value="<%= ejbcawebbean.getText("DELETE") %>"/>
+            <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_DELETE_CAISSUERURI + i %>" value="<%= ejbcawebbean.getText("DELETE") %>"/>
             &nbsp;&nbsp;&nbsp;
             <c:out value="<%= ejbcawebbean.getText(\"EXT_PKIX_AIA_CAISSUERS_URI\") %>" />
       </td>
@@ -1182,7 +1190,7 @@ function checkallfields(){
     <%-- Editable caIssuers URI input form section --%>
     <tr id="Row<%=row++%2%>">
       <td width="50%" align="right">
-            <input type="submit" name="<%= BUTTON_ADD_CAISSUERURI %>" value="<%= ejbcawebbean.getText("ADD") %>" <%=certificateprofiledata.getUseAuthorityInformationAccess() ? "" : "disabled"%>/>
+            <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_ADD_CAISSUERURI %>" value="<%= ejbcawebbean.getText("ADD") %>" <%=certificateprofiledata.getUseAuthorityInformationAccess() ? "" : "disabled"%>/>
             &nbsp;&nbsp;&nbsp;
             <c:out value="<%= ejbcawebbean.getText(\"EXT_PKIX_AIA_CAISSUERS_URI\") %>" />
       </td>
@@ -1725,11 +1733,13 @@ function checkallfields(){
         &nbsp;
       </td>
       <td width="50%" valign="top"> 
-        <input type="submit" name="<%= BUTTON_SAVE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVE") %>">
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_SAVE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVE") %>">
         &nbsp;&nbsp;&nbsp;
-        <input type="submit" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
+        <input type="submit"   class="btn btn-sm btn-danger" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
       </td>
     </tr>
 
   </table>
  </form>
+ </div>
+ </section>

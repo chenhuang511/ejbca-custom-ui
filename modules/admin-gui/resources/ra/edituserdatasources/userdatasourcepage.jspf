@@ -30,7 +30,18 @@ function checkallfields(){
 -->
 
 </script>
-<div align="center"> 
+<style>
+#Row0 {
+background: #eae9e9;
+}
+table.edit-top tr:first-child td, table.edit tr:first-child td, table.edit-bottom tr.section td, table.edit tr.section td {
+    background-color: #FEEECD !important;
+    border-top: 3px solid #FEDD9A !important;
+    color: #A00 !important;
+}
+</style>
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
   <h2><%= ejbcawebbean.getText("EDITUSERDATASOURCE") %></h2>
   <h3><%= ejbcawebbean.getText("USERDATASOURCE")+ " : "%><c:out value="<%= userdatasourcehelper.userdatasourcename %>"/></h3>
 <% if(userdatasourcehelper.connectionmessage){
@@ -43,8 +54,8 @@ function checkallfields(){
      <%}
    } %>
 </div>
-
-  <table class="edit-top" width="100%" border="0" cellspacing="3" cellpadding="3">
+<div class="col-xs-12">
+  <table class="edit-top table table-bordered" width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr id="Row<%=row++%2%>"> 
       <td width="40%" valign="top" align="left"> 
         &nbsp;
@@ -90,7 +101,7 @@ function checkallfields(){
     <input type="hidden" name='<%= EditUserDataSourceJSPHelper.ACTION %>' value='<%=EditUserDataSourceJSPHelper.ACTION_EDIT_USERDATASOURCE %>'>
     <input type="hidden" name='<%= EditUserDataSourceJSPHelper.HIDDEN_USERDATASOURCENAME %>' value='<c:out value="<%= userdatasourcehelper.userdatasourcename %>"/>'>
     <input type="hidden" name='<%= EditUserDataSourceJSPHelper.HIDDEN_USERDATASOURCETYPE %>' value='<%=userdatasourcehelper.getUserDataSourceType() %>'>
-   <table class="edit-bottom" width="100%" border="0" cellspacing="3" cellpadding="3">
+   <table class="edit-bottom table table-bordered" width="100%" border="0" cellspacing="3" cellpadding="3">
 
     <% 
        if(userdatasourcehelper.userdatasourcedata instanceof CustomUserDataSourceContainer){%>
@@ -176,12 +187,15 @@ function checkallfields(){
     <tr  id="Row<%=row++%2%>"> 
       <td width="40%" valign="top">&nbsp;</td>
       <td width="60%" valign="top"> 
-        <input type="submit" name="<%= EditUserDataSourceJSPHelper.BUTTON_TESTCONNECTION %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVEANDTESTCONNECTION") %>">
-        <input type="submit" name="<%= EditUserDataSourceJSPHelper.BUTTON_SAVE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVE") %>">
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= EditUserDataSourceJSPHelper.BUTTON_TESTCONNECTION %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVEANDTESTCONNECTION") %>">
+		  &nbsp;&nbsp;&nbsp;
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= EditUserDataSourceJSPHelper.BUTTON_SAVE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVE") %>">
         &nbsp;&nbsp;&nbsp;
-        <input type="submit" name="<%= EditUserDataSourceJSPHelper.BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
+        <input type="submit"  class="btn btn-sm btn-danger" name="<%= EditUserDataSourceJSPHelper.BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
       </td>
     </tr>
 
   </table>
   </form>
+  </section>
+  </div>

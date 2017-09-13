@@ -827,7 +827,7 @@ function changematchfields(row){
     <td width="2%">&nbsp;</td>
     <td width="5%" align="left">
     </td>
-    <td width="93%" align="left"> <input type="submit" name="<%=BUTTON_ADVANCEDLIST %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'>
+    <td width="93%" align="left"> <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_ADVANCEDLIST %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'>
     </td>        
   </tr>
 

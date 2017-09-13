@@ -7,7 +7,13 @@
 
   row = 0;
 %>
+<style>
+#Row0 {
+background: #eae9e9;
+}
+</style>
 <body > 
+
 <script type="text/javascript">
 <!--  
 
@@ -24,18 +30,19 @@ function check()
 }
 -->
 </script>
-
-<div align="center">
+<jsp:include page="//adminmenu.jsp" />
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
    <h2><%= ejbcawebbean.getText(headlines[filemode]) %></h2>
    <h3><%= ejbcawebbean.getText("CANAME")+ " : "%><c:out value="<%= caname %>"/></h3>
 </div>
-
+<div class="col-xs-8">
   <form name="recievefile" action="<%= THIS_FILENAME %>" method="post" enctype='multipart/form-data' >
     <input type="hidden" name='<%= ACTION %>' value='<%=actions[filemode] %>'>
     <input type="hidden" name='<%= HIDDEN_CAID %>' value='<c:out value="<%= caid %>"/>'>
     <input type="hidden" name='<%= HIDDEN_CANAME %>' value='<c:out value="<%= caname %>"/>'>
     <input type="hidden" name='<%= HIDDEN_ACTIVATEAUTHCODE %>' value='<c:out value="<%= activateauthenticationcode %>"/>'>
-  <table class="action" width="100%" border="0" cellspacing="3" cellpadding="3">
+  <table class="action table table-bordered" width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr id="Row<%=row++%2%>">
       <td width="45%" valign="top">
         &nbsp;
@@ -83,10 +90,13 @@ function check()
            <label for="<%=CHECKBOX_CREATELINKCERT%>"><c:out value="<%= ejbcawebbean.getText(\"CREATELINKCERT\") %>" /></label>
            <br />
         <% } %>
-        <input type="submit" name="<%= BUTTON_RECIEVEFILE %>" onClick='return check()' value="<%= ejbcawebbean.getText(buttontexts[filemode]) %>" >
+        <input type="submit"  class="btn btn-sm btn-danger"  name="<%= BUTTON_RECIEVEFILE %>" onClick='return check()' value="<%= ejbcawebbean.getText(buttontexts[filemode]) %>" >
 		&nbsp;&nbsp;&nbsp;
-        <input type="submit" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
+        <input type="submit"  class="btn btn-sm btn-danger"  name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
       </td>
     </tr>
   </table>
   </form>
+  </div>
+  </section>
+  

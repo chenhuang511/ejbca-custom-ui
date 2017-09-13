@@ -2,8 +2,13 @@
 <head>
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
-  <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
+<script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+    <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+      <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
+    
+        <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
   <script type="text/javascript">
 <!--
 function viewuser(row){
@@ -80,11 +85,29 @@ function confirmrevocation(){
 -->
 </script>
 </head>
-
+<style>
+  td{
+  vertical-align: unset !important;
+  }
+  table.search tr td {
+  padding: .25em .5em .1em 0em;
+  line-height: 1.75em;
+  }
+  default_theme.css:350
+  table th, table td {
+  margin: 0px;
+  padding: 2px 3px;
+  border: none;
+  vertical-align: top;
+  }
+</style>
 <body>
-
-<h1><c:out value="<%= ejbcawebbean.getText(\"SEARCHENDENTITIES\") %>" /></h1>
-
+  <jsp:include page="//adminmenu.jsp" />
+  <section id="content-one" class="container-fuild">
+    <div class="col-xs-12">
+      <h2><c:out value="<%= ejbcawebbean.getText(\"SEARCHENDENTITIES\") %>" /></h2>
+    </div>
+    <div class="col-xs-12">
   <form name="changefiltermode" method="post" action="<%=THIS_FILENAME %>">
     <div align="right">
      <% if(filtermode == AdminPreference.FILTERMODE_BASIC){ %>
@@ -208,7 +231,7 @@ function confirmrevocation(){
   <% } 
   if(!blank){ %>
   <p>
-    <input type="submit" name="<%=BUTTON_RELOAD %>" value='<c:out value="<%= ejbcawebbean.getText(\"RELOAD\") %>"/>'>
+    <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_RELOAD %>" value='<c:out value="<%= ejbcawebbean.getText(\"RELOAD\") %>"/>'>
   </p>
 
 
@@ -218,14 +241,14 @@ function confirmrevocation(){
     <tr> 
       <td width="14%"> 
         <% if(rabean.previousButton(record) ){ %>
-          <input type="submit" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
+          <input type="submit"  class="btn btn-sm btn-danger" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
         <% } %>
       </td>
       <td width="76%">&nbsp; </td>
       <td width="10%"> 
         <div align="right">
         <% if(rabean.nextButton(record,size) ){ %>
-          <input type="submit" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
+          <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
         <% } %>
         </div>
       </td>
@@ -321,7 +344,7 @@ function confirmrevocation(){
   <% }else{
        if(users == null || users.length == 0){     %>
   <tr id="Row0"> 
-    <td width="26%" colspan="3"><br/><c:out value="<%= ejbcawebbean.getText(\"NOENDENTITIESFOUND\") %>"/></td>
+    <td width="26%" colspan="3"><br/> <br/> <c:out value="<%= ejbcawebbean.getText(\"NOENDENTITIESFOUND\") %>"/></td>
     <td width="19%">&nbsp;</td>
     <td width="17%">&nbsp;</td>
     <td width="18%">&nbsp;</td>
@@ -416,23 +439,23 @@ function confirmrevocation(){
     <tr>
       <td width="14%">
         <% if(rabean.previousButton(record)){ %>
-          <input type="submit" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
+          <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_PREVIOUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"PREVIOUS\") %>"/>'>
         <% } %>
       </td>
       <td width="76%"> 
         <div align="center">
-          <input type="button" name="<%=BUTTON_SELECTALL %>" value='<c:out value="<%= ejbcawebbean.getText(\"SELECTALL\") %>"/>'
+          <input type="button"  class="btn btn-sm btn-danger" name="<%=BUTTON_SELECTALL %>" value='<c:out value="<%= ejbcawebbean.getText(\"SELECTALL\") %>"/>'
                 onClick='checkAll("document.form.<%= CHECKBOX_SELECT_USER %>", <%= numcheckboxes %>)'>
-          <input type="button" name="<%=BUTTON_DESELECTALL %>" value='<c:out value="<%= ejbcawebbean.getText(\"UNSELECTALL\") %>"/>'
+          <input type="button"  class="btn btn-sm btn-danger" name="<%=BUTTON_DESELECTALL %>" value='<c:out value="<%= ejbcawebbean.getText(\"UNSELECTALL\") %>"/>'
                 onClick='uncheckAll("document.form.<%= CHECKBOX_SELECT_USER %>", <%= numcheckboxes %>)'>
-          <input type="button" name="<%=BUTTON_INVERTSELECTION %>" value='<c:out value="<%= ejbcawebbean.getText(\"INVERTSELECTION\") %>"/>'
+          <input type="button"  class="btn btn-sm btn-danger"  name="<%=BUTTON_INVERTSELECTION %>" value='<c:out value="<%= ejbcawebbean.getText(\"INVERTSELECTION\") %>"/>'
                  onClick='switchAll("document.form.<%= CHECKBOX_SELECT_USER %>", <%= numcheckboxes %>)'>
         </div>
       </td>
       <td width="10%"> 
         <div align="right">
         <% if(rabean.nextButton(record,size)){ %>
-          <input type="submit" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
+          <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_NEXT %>" value='<c:out value="<%= ejbcawebbean.getText(\"NEXT\") %>"/>'>
         <% } %>
         </div>
       </td>
@@ -447,15 +470,15 @@ function confirmrevocation(){
       <td  valign="top">
       <% try{ 
            if(ejbcawebbean.isAuthorizedNoLog(EjbcaWebBean.AUTHORIZED_RA_REVOKE_RIGHTS)){ %>
-        <input type="submit" name="<%=BUTTON_REVOKE_USERS %>" value='<c:out value="<%= ejbcawebbean.getText(\"REVOKESELECTED\") %>"/>'
+        <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_REVOKE_USERS %>" value='<c:out value="<%= ejbcawebbean.getText(\"REVOKESELECTED\") %>"/>'
                onClick='return confirmrevocation()'>&nbsp;&nbsp;&nbsp;
       <% try{
            if(ejbcawebbean.isAuthorizedNoLog(EjbcaWebBean.AUTHORIZED_RA_DELETE_RIGHTS)){ %>
-        <input type="submit" name="<%=BUTTON_DELETEREVOKE_USERS %>" value='<c:out value="<%= ejbcawebbean.getText(\"REVOKEANDDELETE\") %>"/>'
+        <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_DELETEREVOKE_USERS %>" value='<c:out value="<%= ejbcawebbean.getText(\"REVOKEANDDELETE\") %>"/>'
                onClick='return confirmdeleterevoke()'>&nbsp;&nbsp;&nbsp;
        <%   } 
           }catch(AuthorizationDeniedException ade){} %>        
-         <br /> <c:out value="<%= ejbcawebbean.getText(\"CRL_ENTRY_REVOCATIONREASON\") %>"/>&nbsp;
+         <br />   <br /><c:out value="<%= ejbcawebbean.getText(\"CRL_ENTRY_REVOCATIONREASON\") %>"/>&nbsp;
         <select name="<%=SELECT_REVOKE_REASON %>" >
           <% for(int i=0; i < SecConst.reasontexts.length; i++){ 
                if(i!= 7){%>
@@ -470,7 +493,7 @@ function confirmrevocation(){
       <td  valign="top">
       <% try{ 
            if(ejbcawebbean.isAuthorizedNoLog(EjbcaWebBean.AUTHORIZED_RA_DELETE_RIGHTS)){ %>
-        <input type="submit" name="<%=BUTTON_DELETE_USERS %>" value='<c:out value="<%= ejbcawebbean.getText(\"DELETESELECTED\") %>"/>'
+        <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_DELETE_USERS %>" value='<c:out value="<%= ejbcawebbean.getText(\"DELETESELECTED\") %>"/>'
                onClick='return confirmdelete()'>
        <%   } 
           }catch(AuthorizationDeniedException ade){} %>
@@ -479,8 +502,8 @@ function confirmrevocation(){
       <td  valign="top">
       <%/* try{ 
            if(ejbcawebbean.isAuthorizedNoLog(EjbcaWebBean.AUTHORIZED_RA_EDIT_RIGHTS)){ %>
-        <input type="submit" name="<%=BUTTON_CHANGESTATUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"CHANGESTATUSTO\") %>"/>'
-               onClick='return confirm("<%= ejbcawebbean.getText("AREYOUSURECHANGE",true) %>")'><br />
+        <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_CHANGESTATUS %>" value='<c:out value="<%= ejbcawebbean.getText(\"CHANGESTATUSTO\") %>"/>'
+               onClick='return confirm("<%= ejbcawebbean.getText("AREYOUSURECHANGE",true) %>")'><br /><br />
         <select name="<%=SELECT_CHANGE_STATUS %>">
          <option selected value='<%= Integer.toString(UserDataConstants.STATUS_NEW) %>'><c:out value="<%= ejbcawebbean.getText(\"STATUSNEW\") %>"/></option>
      <!--   <option value='<%= Integer.toString(UserDataConstants.STATUS_FAILED) %>'><c:out value="<%= ejbcawebbean.getText(\"STATUSFAILED\") %>"/></option>  -->
@@ -498,11 +521,6 @@ function confirmrevocation(){
 
   <% } %>
   </form>
-
-
-  <%// Include Footer 
-   String footurl =   globalconfiguration.getFootBanner(); %>
-   
-  <jsp:include page="<%= footurl %>" />
+     </div></section>
 </body>
 </html>

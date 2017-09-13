@@ -19,14 +19,24 @@ function check()
 }
 -->
 </script>
-
-<div align="center">
+<style>
+#Row0 {
+background: #eae9e9;
+}
+table.edit-top tr:first-child td, table.edit tr:first-child td, table.edit-bottom tr.section td, table.edit tr.section td {
+    background-color: #FEEECD !important;
+    border-top: 3px solid #FEDD9A !important;
+    color: #A00 !important;
+}
+</style>
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
    <h2><%= ejbcawebbean.getText("UPLOADUSERDATATEMP") %></h2>
    <h3><%= ejbcawebbean.getText("ENDENTITYPROFILE")+ " : "%> <c:out value="<%= profile %>"/></h3>
 </div>
-
+<div class="col-xs-12">
   <form name="uploadfile" action="<%= THIS_FILENAME %>" method="post" enctype='multipart/form-data' >
-  <table class="action" width="100%" border="0" cellspacing="3" cellpadding="3">
+  <table class="action table table-bordered" width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr id="Row<%=row++%2%>"> 
       <td width="49%" valign="top"> 
         &nbsp;
@@ -47,10 +57,12 @@ function check()
         &nbsp;
       </td>
       <td width="51%" valign="top">     
-        <input type="submit" name="<%= BUTTON_UPLOADFILE %>" onClick='return check()' value="<%= ejbcawebbean.getText("UPLOADTEMPLATE") %>" >
+        <input type="submit"  class="btn btn-sm btn-danger"  name="<%= BUTTON_UPLOADFILE %>" onClick='return check()' value="<%= ejbcawebbean.getText("UPLOADTEMPLATE") %>" >
 		&nbsp;&nbsp;&nbsp;
-        <input type="submit" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">     
+        <input type="submit"  class="btn btn-sm btn-danger"  name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">     
       </td>
     </tr>
   </table>
   </form>
+  </div>
+  </section>

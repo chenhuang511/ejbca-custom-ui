@@ -5,7 +5,7 @@
           value='<c:out value="<%= oldactionvalue %>"/>' <%}%>
      >
     &nbsp;
-    <input type="submit" name="<%=BUTTON_FIND %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'>
+    <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_FIND %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'>
   </p>
 
   <p><c:out value="<%= ejbcawebbean.getText(\"ORIFCERTIFICATSERIAL\") %>"/>
@@ -14,7 +14,7 @@
           value='<c:out value="<%= oldactionvalue %>"/>' <%}%>
      >
     &nbsp;
-    <input type="submit" name="<%=BUTTON_ISREVOKED %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>' 
+    <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_ISREVOKED %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>' 
            onclick='return checkfieldforhexadecimalnumbers("document.form.<%=TEXTFIELD_SERIALNUMBER %>","<c:out value="<%= ejbcawebbean.getText(\"ONLYHEXNUMBERS\") %>"/>")'>
   </p>
 
@@ -25,7 +25,7 @@
           value='<c:out value="<%= oldactionvalue %>"/>' <%}%>
      >
     &nbsp;
-    <input type="submit" name="<%=BUTTON_FINDTOKEN %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>' 
+    <input type="submit" class="btn btn-sm btn-danger"  name="<%=BUTTON_FINDTOKEN %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>' 
            onclick='return checkfieldforlegalchars("document.form.<%=TEXTFIELD_TOKENSERIALNUMBER %>","<c:out value="<%= ejbcawebbean.getText(\"ONLYLETTERSANDNUMBERS\") %>"/>")'>
   </p>
   <% } %>
@@ -45,7 +45,7 @@
       <% } %>
     </select>
     &nbsp;
-    <input type="submit" name="<%=BUTTON_LIST %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'>
+    <input type="submit"class="btn btn-sm btn-danger"  name="<%=BUTTON_LIST %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'>
   </p>
 
   <p><c:out value="<%= ejbcawebbean.getText(\"ORLISTEXPIRING\") %>"/>
@@ -54,6 +54,6 @@
           value='<c:out value="<%= oldactionvalue %>"/>' <%}%>
      > <c:out value="<%= ejbcawebbean.getText(\"DAYS\") %>"/>
     &nbsp;
-    <input type="submit" name="<%=BUTTON_LISTEXPIRED %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'
+    <input type="submit" class="btn btn-sm btn-danger" name="<%=BUTTON_LISTEXPIRED %>" value='<c:out value="<%= ejbcawebbean.getText(\"SEARCH\") %>"/>'
            onclick='return checkfieldfordecimalnumbers("document.form.<%=TEXTFIELD_DAYS %>","<c:out value="<%= ejbcawebbean.getText(\"ONLYDECNUMBERS\") %>"/>")'>
   </p>

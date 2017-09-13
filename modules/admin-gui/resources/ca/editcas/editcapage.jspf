@@ -380,10 +380,15 @@ function checkallfields(){
    } 
 -->
 </script>
-
+<style>
+#Row0 {
+background: #eae9e9;
+}
+</style>
 <body <% if(!editca) out.write(" onload='fillCertProfileField()' "); %>> 
-
-<div align="center"> 
+<jsp:include page="//adminmenu.jsp" />
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
   <% if(processrequest){ %>
   <h2><%= ejbcawebbean.getText("PROCESSREQUEST") %></h2>
   <h3><%= ejbcawebbean.getText("CANAME")+ " : "%><c:out value="<%= caname %>"/><br />
@@ -398,8 +403,8 @@ function checkallfields(){
   <%   }
      }%>
 </div>
-
-  <table class="edit" width="100%" border="0" cellspacing="3" cellpadding="3">
+<div class="col-xs-12">
+  <table class="edit table table-bordered" width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr id="Row<%=row++%2%>"> 
       <td width="50%" valign="top" align="left"> 
         &nbsp;
@@ -954,7 +959,7 @@ function checkallfields(){
          <input type="text" name="<%=TEXTFIELD_DEFAULTCRLDISTPOINT%>" size="40" maxlength="4096" title="<%= ejbcawebbean.getText("FORMAT_URI") %>"
          <% if(editca){%>value="<c:out value="<%= x509cainfo.getDefaultCRLDistPoint() %>"/>"<%}%> />
          <% } %> 
-         <input type="button" name="<%=BUTTON_GENDEFAULTCRLDISTPOINT%>" onClick="gendefaultcrldistpoint()" value="<%= ejbcawebbean.getText("GENERATE") %>" />
+         <input type="button" class="btn btn-sm btn-danger" name="<%=BUTTON_GENDEFAULTCRLDISTPOINT%>" onClick="gendefaultcrldistpoint()" value="<%= ejbcawebbean.getText("GENERATE") %>" />
          <p class="help"><c:out value="<%= ejbcawebbean.getText(\"SERVICE_CA_DEFAULTURI_HELP\") %>" /></p>
       </td>
     </tr>
@@ -971,7 +976,7 @@ function checkallfields(){
          <input type="text" name="<%=TEXTFIELD_DEFAULTCRLISSUER%>" size="40" maxlength="255" title="<%= ejbcawebbean.getText("FORMAT_DN") %>"
          <% if(editca){%>value="<c:out value="<%= x509cainfo.getDefaultCRLIssuer() %>"/>"<%}%>>
            <% } %> 
-           <input type="button" name="<%=BUTTON_GENDEFAULTCRLISSUER%>" onClick="gendefaultcrlissuer()" value="<%= ejbcawebbean.getText("GENERATE") %>" >
+           <input type="button"  class="btn btn-sm btn-danger" name="<%=BUTTON_GENDEFAULTCRLISSUER%>" onClick="gendefaultcrlissuer()" value="<%= ejbcawebbean.getText("GENERATE") %>" >
       </td>
     </tr>
 
@@ -987,7 +992,7 @@ function checkallfields(){
          <input type="text" name="<%=TEXTFIELD_CADEFINEDFRESHESTCRL%>" size="40" maxlength="255" title="<%= ejbcawebbean.getText("FORMAT_URI") %>"
          <% if(editca && (x509cainfo.getCADefinedFreshestCRL() != null)){%>value="<c:out value="<%= x509cainfo.getCADefinedFreshestCRL() %>"/>"<%}%> />
            <% } %>
-         <input type="button" name="<%=BUTTON_GENCADEFINEDFRESHESTCRL%>" onClick="gencadefinedfresherstcrl()" value="<%= ejbcawebbean.getText("GENERATE") %>" />
+         <input type="button"  class="btn btn-sm btn-danger" name="<%=BUTTON_GENCADEFINEDFRESHESTCRL%>" onClick="gencadefinedfresherstcrl()" value="<%= ejbcawebbean.getText("GENERATE") %>" />
          <p class="help"><c:out value="<%= ejbcawebbean.getText(\"SERVICE_CA_DEFAULTURI_HELP\") %>" /></p>
       </td>
     </tr>
@@ -1101,7 +1106,7 @@ function checkallfields(){
              <% }else{ %>
          <input type="text" name="<%=TEXTFIELD_DEFAULTOCSPLOCATOR%>" size="40" maxlength="255" title="<%= ejbcawebbean.getText("FORMAT_URI") %>"
          <% if(editca){ %>value="<c:out value="<%= x509cainfo.getDefaultOCSPServiceLocator() %>"/>"<%}%> />
-           <% } %> <input type="button" name="<%=BUTTON_GENDEFAULTOCSPLOCATOR%>" onClick="gendefaultocsplocator()" value="<%= ejbcawebbean.getText("GENERATE") %>" />
+           <% } %> <input type="button" class="btn btn-sm btn-danger" name="<%=BUTTON_GENDEFAULTOCSPLOCATOR%>" onClick="gendefaultocsplocator()" value="<%= ejbcawebbean.getText("GENERATE") %>" />
          <p class="help"><c:out value="<%= ejbcawebbean.getText(\"SERVICE_CA_DEFAULTURI_HELP\") %>" /></p>
       </td>
     </tr>
@@ -1133,7 +1138,7 @@ function checkallfields(){
                  out.write("CHECKED");%> id="<%=CHECKBOX_ACTIVATEXKMSSERVICE%>">
            <label for="<%=CHECKBOX_ACTIVATEXKMSSERVICE%>"><c:out value="<%= ejbcawebbean.getText(\"ACTIVATE\") %>" /></label>
          <% if(editca){ %> &nbsp;&nbsp;         
-         <input type="submit" name="<%= BUTTON_REVOKERENEWXKMSCERTIFICATE %>" <% if(waitingresponse) out.write(" disabled ");%> value="<%= ejbcawebbean.getText("REVOKERENEWXKMSCERT") %>" >
+         <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_REVOKERENEWXKMSCERTIFICATE %>" <% if(waitingresponse) out.write(" disabled ");%> value="<%= ejbcawebbean.getText("REVOKERENEWXKMSCERT") %>" >
          <%   if(xkmscert != null){ %> &nbsp;&nbsp;         
          <br />         
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1156,7 +1161,7 @@ function checkallfields(){
                  out.write("CHECKED");%> id="<%=CHECKBOX_ACTIVATECMSSERVICE%>">
            <label for="<%=CHECKBOX_ACTIVATECMSSERVICE%>"><c:out value="<%= ejbcawebbean.getText(\"ACTIVATE\") %>" /></label>
          <% if(editca){ %> &nbsp;&nbsp;         
-         <input type="submit" name="<%= BUTTON_REVOKERENEWCMSCERTIFICATE %>" <% if(waitingresponse) out.write(" disabled ");%> value="<%= ejbcawebbean.getText("REVOKERENEWCMSCERT") %>" >
+         <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_REVOKERENEWCMSCERTIFICATE %>" <% if(waitingresponse) out.write(" disabled ");%> value="<%= ejbcawebbean.getText("REVOKERENEWCMSCERT") %>" >
          <%   if(cmscert != null){ %> &nbsp;&nbsp;         
          <br />         
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1275,16 +1280,16 @@ function checkallfields(){
       <td width="51%" valign="top">
       <% if(!isexternal){ 
            if(processrequest){ %>
-          <input style="font-weight:bold;" type="submit" name="<%= BUTTON_PROCESSREQUEST %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("PROCESSREQUEST") %>">
+          <input style="font-weight:bold;" type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_PROCESSREQUEST %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("PROCESSREQUEST") %>">
       <% }else{
             if(editca){ %>
-          <input style="font-weight:bold;" type="submit" name="<%= BUTTON_SAVE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVE") %>">
+          <input style="font-weight:bold;" type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_SAVE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("SAVE") %>">
         <%  }else{ %>
-          <input style="font-weight:bold;" type="submit" name="<%= BUTTON_CREATE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("CREATE") %>">
+          <input style="font-weight:bold;" type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_CREATE %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("CREATE") %>">
         <%  }
          } %>
         &nbsp;&nbsp;&nbsp;
-        <input style="font-weight:bold;" type="submit" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
+        <input style="font-weight:bold;" type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
         <% }else{ %>
         &nbsp;&nbsp;&nbsp;
         <input style="font-weight:bold;" type="submit" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("BACK") %>">
@@ -1325,7 +1330,7 @@ function checkallfields(){
           <%   } 
              } %>
         </select>
-        <input type="submit" name="<%= BUTTON_REVOKECA %>" value="<%= ejbcawebbean.getText("REVOKE") %>" onClick='return confirmrevocation()'>     
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_REVOKECA %>" value="<%= ejbcawebbean.getText("REVOKE") %>" onClick='return confirmrevocation()'>     
       </td>
     </tr>
         <% } %>   
@@ -1349,7 +1354,7 @@ function checkallfields(){
     <tr  id="Row<%=row++%2%>"> 
       <td width="49%" valign="top" align="right">&nbsp;</td>
       <td width="51%" valign="top">             
-        <input type="submit" <%=disabledStr%> name="<%= BUTTON_MAKEREQUEST %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("MAKEREQUEST") %>" >
+        <input type="submit" class="btn btn-sm btn-danger" <%=disabledStr%> name="<%= BUTTON_MAKEREQUEST %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("MAKEREQUEST") %>" >
       </td>
     </tr>
         <% } %>   
@@ -1358,7 +1363,7 @@ function checkallfields(){
     <tr  id="Row<%=row++%2%>"> 
       <td width="49%" valign="top" align="right"><%= ejbcawebbean.getText("RENEWCA") %> <%= ejbcawebbean.getHelpReference("/userguide.html#Renewing%20a%20SubCA%20signed%20by%20an%20external%20CA") %></td>
       <td width="51%" valign="top">             
-        <input type="submit" name="<%= BUTTON_RENEWCA %>" onClick='return confirmrenewal()' value="<%= ejbcawebbean.getText("RENEWCA") %>" > 
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_RENEWCA %>" onClick='return confirmrenewal()' value="<%= ejbcawebbean.getText("RENEWCA") %>" > 
            &nbsp;
            <input type="checkbox" name="<%=CHECKBOX_RENEWKEYS %>" value="<%=CHECKBOX_VALUE %>"
                id="<%=CHECKBOX_RENEWKEYS%>">
@@ -1378,7 +1383,7 @@ function checkallfields(){
     <tr  id="Row<%=row++%2%>"> 
       <td width="49%" valign="top" align="right">&nbsp;</td>
       <td width="51%" valign="top">             
-        <input type="submit" name="<%= BUTTON_RECEIVEREQUEST %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("RECIEVEREQUEST") %>" >
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_RECEIVEREQUEST %>" onClick='return checkallfields()' value="<%= ejbcawebbean.getText("RECIEVEREQUEST") %>" >
         <br/>
         <%= ejbcawebbean.getText("AUTHENTICATIONCODEACTIVATE") %>
         <input type="password" name="<%=TEXTFIELD_AUTHENTICATIONCODEACTIVATE%>" size="20" maxlength="64">
@@ -1390,7 +1395,7 @@ function checkallfields(){
     <tr  id="Row<%=row++%2%>"> 
       <td width="49%" valign="top" align="right">&nbsp;</td>
       <td width="51%" valign="top">             
-        <input type="submit" name="<%= BUTTON_PUBLISHCA %>"  value="<%= ejbcawebbean.getText("REPUBLISHCA") %>" >
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_PUBLISHCA %>"  value="<%= ejbcawebbean.getText("REPUBLISHCA") %>" >
       </td>
     </tr>
 
@@ -1410,7 +1415,7 @@ function checkallfields(){
       <td width="51%" valign="top">             
 		<input type="hidden" name='<%= org.ejbca.ui.web.admin.cainterface.CAExportServlet.HIDDEN_CANAME %>' value='<c:out value="<%= caname %>"/>' />
         <input type="password" name="<%= org.ejbca.ui.web.admin.cainterface.CAExportServlet.TEXTFIELD_EXPORTCA_PASSWORD %>"  value="" />
-        <input type="submit" name="<%= BUTTON_EXPORTCA %>"  value="<%= ejbcawebbean.getText("EXPORTCA")+"..." %>" />
+        <input type="submit" class="btn btn-sm btn-danger" name="<%= BUTTON_EXPORTCA %>"  value="<%= ejbcawebbean.getText("EXPORTCA")+"..." %>" />
       </td>
     </tr>
 	</form>
@@ -1422,4 +1427,5 @@ function checkallfields(){
     <% } %> 
 
   </table>
-  
+  </div>
+  </section>

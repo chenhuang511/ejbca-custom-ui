@@ -270,7 +270,11 @@
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
   <link rel="shortcut icon" href="<%=ejbcawebbean.getImagefileInfix("favicon.png")%>" type="image/png" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
   <script type="text/javascript">
 <!--
@@ -301,7 +305,15 @@ function confirmrepublish(){
 -->
   </script>
 </head>
-
+<style>
+#Row0 {
+background: #eae9e9;
+}
+.title
+{
+    background: #FEDD9A !important;
+}
+</style>
 <body class="popup" id="viewcertificate">
 
   <h2><%= ejbcawebbean.getText("VIEWCERTIFICATE") %></h2>
@@ -344,7 +356,7 @@ function confirmrepublish(){
      <input type="hidden" name='<%= HIDDEN_INDEX %>' value='<%=currentindex %>'>
 
 
-     <table class="view" border="0" cellpadding="0" cellspacing="2" width="100%">
+     <table class="view table table-bordered" border="0" cellpadding="0" cellspacing="2" width="100%">
 
       <!-- ---------- Title ---------- -->
 
@@ -381,12 +393,12 @@ function confirmrepublish(){
          <td  align="right" width="<%=columnwidth%>"> 
            &nbsp;
            <% if(currentindex < numberofcertificates -1 ){ %>
-           <input type="submit" name="<%= BUTTON_VIEW_OLDER %>" value="&lt; <%= ejbcawebbean.getText("VIEWOLDER") %>" tabindex="1" />
+           <input type="submit" class="btn btn-sm btn-danger"   name="<%= BUTTON_VIEW_OLDER %>" value="&lt; <%= ejbcawebbean.getText("VIEWOLDER") %>" tabindex="1" />
            <% } %>
          </td>
          <td>
            <% if(currentindex > 0 ){ %>
-           <input type="submit" name="<%= BUTTON_VIEW_NEWER %>" value="<%= ejbcawebbean.getText("VIEWNEWER") %> &gt;" tabindex="2" />
+           <input type="submit" class="btn btn-sm btn-danger"   name="<%= BUTTON_VIEW_NEWER %>" value="<%= ejbcawebbean.getText("VIEWNEWER") %> &gt;" tabindex="2" />
            <% } %>
            &nbsp;
          </td>
@@ -591,11 +603,11 @@ function confirmrepublish(){
           <td>  
             <% 
             if(!cacerts &&  rabean.keyRecoveryPossible(certificatedata.getCertificate(), certificatedata.getUsername()) && usekeyrecovery){ %>
-            <input type="submit" name="<%=BUTTON_RECOVERKEY %>" value="<%= ejbcawebbean.getText("RECOVERKEY") %>"
+            <input type="submit" class="btn btn-sm btn-danger"   name="<%=BUTTON_RECOVERKEY %>" value="<%= ejbcawebbean.getText("RECOVERKEY") %>"
                    onClick='return confirmkeyrecovery()'>
             <% }
             if(!cacerts &&  rabean.userExist(certificatedata.getUsername()) && rabean.isAuthorizedToEditUser(certificatedata.getUsername())){ %>
-            <input type="submit" name="<%=BUTTON_REPUBLISH %>" value="<%= ejbcawebbean.getText("REPUBLISH") %>"
+            <input type="submit" class="btn btn-sm btn-danger"   name="<%=BUTTON_REPUBLISH %>" value="<%= ejbcawebbean.getText("REPUBLISH") %>"
                    onClick='return confirmrepublish()'>
             <% } %>
             &nbsp;
@@ -613,13 +625,13 @@ function confirmrepublish(){
           <%   } 
              }%>
         </select>
-        <input type="submit" name="<%=BUTTON_REVOKE %>" value="<%= ejbcawebbean.getText("REVOKE") %>"
+        <input type="submit" class="btn btn-sm btn-danger"   name="<%=BUTTON_REVOKE %>" value="<%= ejbcawebbean.getText("REVOKE") %>"
                onClick='return confirmrevocation()'>
 <% 
 			  }else if ( certificatedata.isRevokedAndOnHold() ){
 				//-- Certificate can be unrevoked
 %>
-				<input type="submit" name="<%=BUTTON_UNREVOKE %>" value="<%= ejbcawebbean.getText("UNREVOKE") %>"
+				<input type="submit" class="btn btn-sm btn-danger"  name="<%=BUTTON_UNREVOKE %>" value="<%= ejbcawebbean.getText("UNREVOKE") %>"
                 onClick='return confirmunrevocation()'>
 <%
 			  }

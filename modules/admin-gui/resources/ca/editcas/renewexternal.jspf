@@ -2,7 +2,14 @@
 <% 
   row = 0;
 %>
+
+<style>
+#Row0 {
+background: #eae9e9;
+}
+</style>
 <body > 
+
 <script type="text/javascript">
 <!--  
 
@@ -19,8 +26,10 @@ function check(file)
 }
 -->
 </script>
+<jsp:include page="//adminmenu.jsp" />
+<section id="content-one" class="container-fuild">
+<div class="col-xs-12">
 
-<div align="center">
    <h2><%= ejbcawebbean.getText("RENEWCA") %></h2>
    <h3><%= ejbcawebbean.getText("CANAME")+ " : " + caname %></h3>
 </div>
@@ -28,7 +37,7 @@ function check(file)
 <div align="center">
    <h3><%= ejbcawebbean.getText("MAKEREQUEST") %></h3>
 </div>
-
+<div class="col-xs-8">
   <form name="makerequest" action="<%= THIS_FILENAME %>" method="post" enctype='multipart/form-data' onSubmit='return check(document.makerequest.<%= FILE_RECIEVEFILE %>)'>
     <input type="hidden" name='<%= ACTION %>' value='<%=ACTION_RENEWCA_MAKEREQUEST %>'>
     <input type="hidden" name='<%= HIDDEN_CAID %>' value='<%= caid %>'>
@@ -36,7 +45,7 @@ function check(file)
     <input type="hidden" name='<%= HIDDEN_RENEWKEYS %>' value='<%= reGenerateKeys %>'>
     <input type="hidden" name='<%= HIDDEN_ACTIVATEKEYS %>' value='<%= activateKeys %>'>
     <input type="hidden" name='<%= HIDDEN_RENEWAUTHCODE %>' value='<%= renewauthenticationcode %>'>
-  <table class="action" width="100%" border="0" cellspacing="3" cellpadding="3">
+  <table class="action table table-bordered" width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr id="Row<%=row++%2%>"> 
       <td width="45%" valign="top"> 
         &nbsp;
@@ -58,7 +67,7 @@ function check(file)
       <td width="45%" valign="top" align="right">&nbsp;
       </td>
       <td width="55%" valign="top">     
-        <input type="submit" name="<%= BUTTON_RECIEVEFILE %>"  value="<%= ejbcawebbean.getText("MAKEREQUEST") %>" >        
+        <input type="submit" class="btn btn-sm btn-danger"   name="<%= BUTTON_RECIEVEFILE %>"  value="<%= ejbcawebbean.getText("MAKEREQUEST") %>" >        
       </td>
     </tr>
   </table>
@@ -84,10 +93,12 @@ function check(file)
       <td width="45%" valign="top" align="right">&nbsp;
       </td>
       <td width="55%" valign="top">
-        <input type="submit" name="<%= BUTTON_RECIEVEFILE %>"  value="<%= ejbcawebbean.getText("RECIEVEREQUEST") %>" >
+        <input type="submit"  class="btn btn-sm btn-danger" name="<%= BUTTON_RECIEVEFILE %>"  value="<%= ejbcawebbean.getText("RECIEVEREQUEST") %>" >
 		&nbsp;&nbsp;&nbsp;
-        <input type="submit" name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
+        <input type="submit"  class="btn btn-sm btn-danger"  name="<%= BUTTON_CANCEL %>" value="<%= ejbcawebbean.getText("CANCEL") %>">
       </td>
     </tr>
   </table>
   </form>
+  </div>
+  </section>
