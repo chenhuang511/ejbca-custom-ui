@@ -99,6 +99,22 @@ header .nav a:hover{
     display: block;
 }
 
+#menu li >div:hover{
+    text-decoration: none;
+    color: #fff;
+    background: #d00a07;
+    display: block;
+}
+#menu li > div{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+}
+
 #menu li ul{
     background: #fff;
     display: none;

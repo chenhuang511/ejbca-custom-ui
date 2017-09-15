@@ -1,32 +1,31 @@
-<h1 class="title">${THIS_TITLE}</h1>
+<style>  input[type=password] {  padding-left: 25px;  font-weight: 600;  }</style><section id="content-enroll-create" class="container-fuild">  <div class="col-xs-6 col-xs-offset-3">    <h3>${THIS_TITLE}</h3>    <p>Welcome to ${THIS_TITLE}.</p>    <p>Please enter your username and password. Then click OK to generate your token.</p>  </div><form name="CertReqForm" action="${THIS_FILENAME}"  method="post">
+  <div class="col-xs-4 col-xs-offset-4">
+    <div class="input-item">
+      <button class="aut form-control">Authentication</button>
+    </div>
 
-<p>Welcome to ${THIS_TITLE}.</p>
-<p>Please enter your username and password. Then click OK to generate your token.</p>
+    <c:if test="${forcedBrowser != null}">
+      <input type="hidden" name="${FORCE_BROWSER}" value="${forcedBrowser}" />
+    </c:if>
 
-<form name="CertReqForm" action="${THIS_FILENAME}"  method="post">
-  <fieldset>
-    <legend>Authentication</legend>
-
-	<c:if test="${forcedBrowser != null}">
-        <input type="hidden" name="${FORCE_BROWSER}" value="${forcedBrowser}" />
-	</c:if>
-
-	<input type="hidden" name="${ACTION}" value="${ACTION_GENERATETOKEN}" />
+    <input type="hidden" name="${ACTION}" value="${ACTION_GENERATETOKEN}" />
     <input type="hidden" name="${HIDDEN_BROWSER}" value="${BROWSER_UNKNOWN}" />
-
-	<label for="${TEXTFIELD_USERNAME}">Username</label>
-	<input type="text" size="40" name="${TEXTFIELD_USERNAME}" id="${TEXTFIELD_USERNAME}" accesskey="u" />
-	<br />
-    <label for="${TEXTFIELD_PASSWORD}">Password</label>
-    <input type="password" size="40" name="${TEXTFIELD_PASSWORD}" id="${TEXTFIELD_PASSWORD}" accesskey="p" />
-    <br />
-    <label for="${BUTTON_SUBMIT_USERNAME}"></label>
-    <input type="submit" value="OK" name="${BUTTON_SUBMIT_USERNAME}" id="${BUTTON_SUBMIT_USERNAME}" />
-  </fieldset>
+    <div class="input-item">
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        <input type="text"  class="form-control" size="40" name="${TEXTFIELD_USERNAME}" id="${TEXTFIELD_USERNAME}" accesskey="u" />
+     </div>
+    <div class="input-item">
+      <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+      <input type="password" class="form-control" size="40" name="${TEXTFIELD_PASSWORD}" id="${TEXTFIELD_PASSWORD}" accesskey="p" />
+    </div>
+    <div class="input-item">
+      <input type="submit"  class="btn btn-danger pull-right" value="OK" name="${BUTTON_SUBMIT_USERNAME}" id="${BUTTON_SUBMIT_USERNAME}" />
+    </div>
+  </div>
 </form>
-
 <script type="text/javascript">
 <!--
     browserSelector ();
 // -->
 </script>
+  </section>

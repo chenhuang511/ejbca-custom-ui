@@ -12,25 +12,39 @@
     <meta http-equiv="Content-Type" content="text/html; charset=<%= org.ejbca.config.WebConfiguration.getWebContentEncoding() %>" />
     <title><%= org.ejbca.config.InternalConfiguration.getAppNameCapital() %> Public Web</title>
 	<link rel="shortcut icon" href="images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="styles.css" type="text/css" />
+<script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+    <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
     <script type="text/javascript" src="scripts/functions.js"></script>
     <script type="text/vbscript" src="scripts/functions.vbs"></script>
+	  <style>
+  #menu li ul li {
+
+    width: 100% !important;
+ 
+}
+  </style>
   </head>
 
   <body>
-    <div id="header">
-		<div id="banner">
-			<a href="."><img src="images/logotype.png" alt="EJBCA" /></a>
-		</div>
-    </div>
-    <div class="menucontainer">
-      <div class="menu">
-        <ul>
+    <header class="container-fuild">
+        <div class="col-xs-5 logo">
+            <a href="#"><img src="adminweb/themes/libs/img/logo.png" alt="" target="_top"></a>
+        </div>
+    </header>
+
+
+
+  <section id="menu" class="container-fuild">
+   <div class="col-xs-12 main-menu">        <ul>
           <li><div class="menuheader">Enroll</div>
             <ul>
               <li>
                 <a href="enrol/browser.jsp">Create Browser Certificate</a>
               </li>
+			  <!--
               <li>
                 <a href="enrol/server.jsp">Create Certificate from CSR</a>
               </li>
@@ -104,10 +118,10 @@
                 <a href="/logout">Logout</a>
               </li>
               <% } %>
+			  -->
             </ul>
           </li>  
         </ul>
       </div>
-    </div>
-    <div class="main">
-      <div class="content">
+    </section>
+ 

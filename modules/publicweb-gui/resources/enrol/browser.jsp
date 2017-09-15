@@ -7,4 +7,4 @@
 <c:set var="THIS_FILENAME" value="/${internalConfiguration.appNameLowerDynamic}/enrol/browser.jsp" />
 <%@ include file="apply/apply_main.jsp" %>
 
-<%@ include file="footer.inc" %>
+
