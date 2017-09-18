@@ -17,22 +17,60 @@
 	</td>
 	<td></td>
 </tr>
-<tr>
+<tr class="bld">
 	<td><label><c:out
-				value="<%= ejbcawebbean.getText(\"THEME\") %>" /> </label>
+				value="<%= ejbcawebbean.getText(\"PREFEREDLANGUAGE\") %>" /> </label>
 		<p>
-			<c:out value="<%= ejbcawebbean.getText(\"THEME_HELP\") %>" />
+			<c:out value="<%= ejbcawebbean.getText(\"PREFEREDLANGUAGE_HELP\") %>" />
 		</p></td>
-	<td><select name="<%= LIST_THEME %>">
-			<% String[] availablethemes = globalconfiguration.getAvailableThemes();                                    
-             String theme = dup.getTheme();
-             if(availablethemes != null){
-               for(int i = 0; i < availablethemes.length; i++){
+	<td><select name="<%= LIST_PREFEREDLANGUAGE %>">
+			<% String[] availablelanguages = ejbcawebbean.getAvailableLanguages();                                    
+             int preferedlanguage = dup.getPreferedLanguage();
+             for(int i = 0; i < availablelanguages.length; i++){
           %>
-			<option <% if(availablethemes[i].equals(theme)){ %> selected <% } %>
-				value='<c:out value="<%= availablethemes[i] %>"/>'><c:out value="<%= availablethemes[i] %>"/></option>
-			<%   }
-             }%>
+			<option <% if(i == preferedlanguage){ %> selected <% } %>
+				value='<c:out value="<%= availablelanguages[i] %>"/>'><c:out value="<%= availablelanguages[i] %>"/></option>
+			<% } %>
+	</select></td>
+</tr>
+
+<tr class="bld">
+	<td><label><c:out
+				value="<%= ejbcawebbean.getText(\"SECONDARYLANGUAGE\") %>" /> </label>
+		<p>
+			<c:out
+				value="<%= ejbcawebbean.getText(\"SECONDARYLANGUAGE_HELP\") %>" />
+		</p></td>
+	<td><select name="<%= LIST_SECONDARYLANGUAGE %>">
+			<% availablelanguages = ejbcawebbean.getAvailableLanguages();                                    
+             int secondarylanguage = dup.getSecondaryLanguage();
+             for(int i = 0; i < availablelanguages.length; i++){
+          %>
+			<option <% if(i == secondarylanguage){ %> selected <% } %>
+				value='<c:out value="<%= availablelanguages[i] %>"/>'><c:out value="<%= availablelanguages[i] %>"/></option>
+			<% } %>
+	</select></td>
+</tr>
+
+<tr class="bld">
+	<td><label><c:out
+				value="<%= ejbcawebbean.getText(\"NUMBEROFRECORDSPERPAGE\") %>" /></label>
+		<p>
+			<c:out
+				value="<%= ejbcawebbean.getText(\"NUMBEROFRECORDSPERPAGE_HELP\") %>" />
+		</p></td>
+	<td><select name="<%= LIST_ENTIESPERPAGE %>" class="number">
+			<% String[] possibleentriesperpage = globalconfiguration .getPossibleEntiresPerPage();                                    
+             int entriesperpage = dup.getEntriesPerPage();
+             for(int i = 0; i < possibleentriesperpage.length; i++){
+          %>
+			<option
+				<% if(Integer.parseInt(possibleentriesperpage[i]) == entriesperpage){ %>
+				selected <% } %>
+				value='<c:out value="<%= Integer.parseInt(possibleentriesperpage[i]) %>"/>'><c:out value="<%= possibleentriesperpage[i] %>"/></option>
+			<%
+				}
+			%>
 	</select></td>
 </tr>
 
