@@ -87,17 +87,6 @@ function checkuseautoenroll(){
 		<form name="webconfiguration" method="post" action="<%= globalconfiguration .getConfigPath() + "/" + THIS_FILENAME %>">
 			<table class="table table-bordered" cellpadding="3" cellspacing="3">
 				<tr>
-					<td width=50%><label><c:out
-								value="<%= ejbcawebbean.getText(\"EJBCATITLE\") %>" /></label>
-						<p>
-							<c:out value="<%= ejbcawebbean.getText(\"EJBCATITLE_HELP\") %>" />
-						</p></td>
-					<td width=50%><input type="text"
-						value='<c:out value="<%= gc.getEjbcaTitle() %>"/>'
-						name="<%=TEXTFIELD_TITLE %>" maxlength="150" size="45"
-						title="<%= ejbcawebbean.getText("FORMAT_STRING") %>"></td>
-				</tr>
-				<tr>
 					<td><label><c:out
 								value="<%= ejbcawebbean.getText(\"HEADBANNER\") %>" /></label>
 						<p>
@@ -356,15 +345,6 @@ function checkuseautoenroll(){
                             <input type="text" name="<%=TEXTFIELD_NODES_ADD %>" title="<%= ejbcawebbean.getText("FORMAT_HOSTNAME") %>" />
                             <button type="submit" class="btn btn-sm btn-danger btnaddnote" name="<%= BUTTON_NODES_ADD %>"><c:out value="<%= ejbcawebbean.getText(\"ADD\") %>"/></button>
                         </div>
-                    </td>
-                </tr>
-                <tr class="bld">
-                    <td>
-                        <label><c:out value="<%= ejbcawebbean.getText(\"CLEARALLCACHES\") %>"/> </label>
-                        <p><c:out value="<%= ejbcawebbean.getText(\"CLEARALLCACHES_HELP\") %>"/></p>
-                    </td>
-                    <td>
-                        <button class="btn btn-sm btn-danger" type="submit" name="<%= BUTTON_CLEAR_ALL_CACHES %>"><c:out value="<%= ejbcawebbean.getText(\"CLEARALLCACHES\") %>"/></button>
                     </td>
                 </tr>
                 <tr>
