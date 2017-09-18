@@ -44,13 +44,15 @@
               <li>
                 <a href="browser.jsp">Create Browser Certificate</a>
               </li>
-			  <!--
+		
               <li>
                 <a href="server.jsp">Create Certificate from CSR</a>
               </li>
+			 <!--
               <li>
                 <a href="keystore.jsp">Create Keystore</a>
               </li>
+			  
               <li>
                 <a href="cvcert.jsp">Create CV certificate</a>
               </li>
