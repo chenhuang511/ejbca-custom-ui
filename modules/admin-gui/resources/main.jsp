@@ -17,7 +17,8 @@
   <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
   <script src="adminweb/themes/libs/js/main.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">  <meta http-equiv="Content-Type" content="text/html; charset=<%= org.ejbca.config.WebConfiguration.getWebContentEncoding() %>" />
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=<%= org.ejbca.config.WebConfiguration.getWebContentEncoding() %>" />
 
 </head>
 
@@ -26,7 +27,7 @@
 
 <section id="content-one" class="container-fuild">
 <div class="col-xs-12">
-<h2>Dashboard</h2> 
+<h2>Dashboard</h2>
 </div>
 <div class="col-xs-8">
 	
