@@ -3,10 +3,6 @@
     <h1 class="title"><%= org.ejbca.config.InternalConfiguration.getAppNameCapital() %> Token Certificate Enrollment</h1>
 <hr />
 
-<p>Welcome to keystore enrollment.</p>
-<p>If you want to, you can manually install the CA certificate(s)
-   in your browser, otherwise this will be done automatically when
-   your certificate is retrieved.</p>
 <p>Install CA certificates:</p>
 
 	<c:if test="${forcedBrowser != null}">
@@ -28,10 +24,6 @@
 	</c:choose>
 
 <hr />
-<p>Please choose a key length, then click OK to fetch your certificate.</p>
-<p>Tick the &quot;OpenVPN&quot; checkbox if you want to create an OpenVPN installer.
-   This options requires special configuration of the CA.
-</p>
 
 <form action="../certreq" enctype="x-www-form-encoded" method="post">
   <fieldset>
