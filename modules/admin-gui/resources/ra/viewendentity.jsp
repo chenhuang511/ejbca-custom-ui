@@ -43,10 +43,22 @@
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
   <link rel="shortcut icon" href="<%=ejbcawebbean.getImagefileInfix("favicon.png")%>" type="image/png" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
 </head>
-
+<style>
+#Row0 {
+background: #eae9e9;
+}
+.title
+{
+ background: #FEDD9A !important;
+}
+</style>
 <body class="popup" id="viewendentity">
 
   <h2><%= ejbcawebbean.getText("VIEWENDENTITY2") %></h2>
@@ -74,7 +86,7 @@
      <input type="hidden" name='<%= ViewEndEntityHelper.ACTION %>' value='<%= ViewEndEntityHelper.ACTION_PAGE%>'>
      <input type="hidden" name='<%= ViewEndEntityHelper.USER_PARAMETER %>' value='<%= java.net.URLEncoder.encode(viewendentityhelper.username,"UTF-8")%>'>
 
-     <table class="view" border="0" cellpadding="0" cellspacing="2" width="100%">
+     <table class="view table table-bordered" border="0" cellpadding="0" cellspacing="2" width="100%">
 
     <!-- ---------- Title -------------------- -->
 
@@ -124,12 +136,12 @@
 	 <td width="<%=ViewEndEntityHelper.columnwidth%>" style="text-align:right;">
           &nbsp;
           <% if((viewendentityhelper.currentuserindex+1) < viewendentityhelper.userdatas.length){ %>
-           <input type="submit" name="<%= ViewEndEntityHelper.BUTTON_VIEW_OLDER %>" value="&lt; <%= ejbcawebbean.getText("VIEWOLDER") %>" tabindex="1">
+           <input type="submit" class="btn btn-sm btn-danger"  name="<%= ViewEndEntityHelper.BUTTON_VIEW_OLDER %>" value="&lt; <%= ejbcawebbean.getText("VIEWOLDER") %>" tabindex="1">
           <% } %>
 	   </td>
 	 <td style="text-align:left;">
           <% if(viewendentityhelper.currentuserindex > 0 ){ %>
-           <input type="submit" name="<%= ViewEndEntityHelper.BUTTON_VIEW_NEWER %>" value="<%= ejbcawebbean.getText("VIEWNEWER") %> &gt;" tabindex="2">
+           <input type="submit"  class="btn btn-sm btn-danger" name="<%= ViewEndEntityHelper.BUTTON_VIEW_NEWER %>" value="<%= ejbcawebbean.getText("VIEWNEWER") %> &gt;" tabindex="2">
           <% } %>	 
           &nbsp;
        </td>
@@ -469,7 +481,7 @@
        <tr id="Row<%=(viewendentityhelper.row++)%2%>">
      <td align="right">&nbsp;</td>
 	 <td>
-             <input type="reset" name="<%= ViewEndEntityHelper.BUTTON_CLOSE %>" value="<%= ejbcawebbean.getText("CLOSE") %>" tabindex="3"
+             <input type="reset" class="btn btn-sm btn-danger"  name="<%= ViewEndEntityHelper.BUTTON_CLOSE %>" value="<%= ejbcawebbean.getText("CLOSE") %>" tabindex="3"
                     onClick='self.close()'>
        </td>
        </tr> 

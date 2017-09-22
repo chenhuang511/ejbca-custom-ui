@@ -589,7 +589,11 @@
   <title><c:out value="<%= globalconfiguration.getEjbcaTitle() %>" /></title>
   <base href="<%= ejbcawebbean.getBaseUrl() %>" />
   <link rel="shortcut icon" href="<%=ejbcawebbean.getImagefileInfix("favicon.png")%>" type="image/png" />
-  <link rel="stylesheet" type="text/css" href="<%= ejbcawebbean.getCssFile() %>" />
+  <script src="adminweb/themes/libs/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/bootstrap.min.css">
+  <script src="adminweb/themes/libs/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="adminweb/themes/libs/css/font-awesome.min.css">
+  <link rel="stylesheet" href="adminweb/themes/libs/css/styles.css">
   <script type="text/javascript">
    <!--
 
@@ -977,7 +981,15 @@ function checkUseInBatch(){
   </script>
   <script type="text/javascript" src="<%= globalconfiguration.getAdminWebPath() %>ejbcajslib.js"></script>
 </head>
-
+<style>
+#Row0 {
+background: #eae9e9;
+}
+.title
+{
+    background: #FEDD9A !important;
+}
+</style>
 <body class="popup" id="editendentity"
       onload='<% if(usehardtokenissuers) out.write("setAvailableHardTokenIssuers();");
                  if(usekeyrecovery) out.write(" isKeyRecoveryPossible(); ");%>
@@ -1013,7 +1025,7 @@ function checkUseInBatch(){
 	<input type="hidden" name="<%= HIDDEN_PROFILE %>" value="<%=profileid %>" />    
 	<input type="hidden" name="<%= USER_PARAMETER %>" value="<c:out value="<%= username %>"/>" />
 
-	<table class="edit" border="0" cellpadding="0" cellspacing="2" width="100%">
+	<table class="edit table table-bordered" border="0" cellpadding="0" cellspacing="2" width="100%">
 
 	<tr id="Row<%=(row)%2%>">
 	  <td align="right"><%= ejbcawebbean.getText("ENDENTITYPROFILE")%></td>  
@@ -1048,7 +1060,7 @@ function checkUseInBatch(){
          <option <%if(userdata.getStatus()== UserDataConstants.STATUS_HISTORICAL) out.write(" selected ");%> value='<%= UserDataConstants.STATUS_HISTORICAL %>'><%= ejbcawebbean.getText("STATUSHISTORICAL") %></option>
         </select>
         &nbsp;&nbsp;&nbsp;
-        <input style="font-weight:bold;" type="submit" name="<%= BUTTON_SAVE %>" value="<%= ejbcawebbean.getText("SAVE") %>" tabindex="<%=tabindex++%>" onClick='return checkallfields()' />
+        <input style="font-weight:bold;" type="submit" class="btn btn-sm btn-danger"   name="<%= BUTTON_SAVE %>" value="<%= ejbcawebbean.getText("SAVE") %>" tabindex="<%=tabindex++%>" onClick='return checkallfields()' />
       </td>
       <td>&nbsp;</td>
     </tr>
@@ -1818,9 +1830,9 @@ function checkUseInBatch(){
 
 	<tr id="Row<%=(row++)%2%>">
 	  <td align="right">&nbsp;</td>
-	  <td><input type="submit" name="<%= BUTTON_SAVE %>" value="<%= ejbcawebbean.getText("SAVE") %>" tabindex="<%=tabindex++%>" onClick='return checkallfields()'>
+	  <td><input type="submit" class="btn btn-sm btn-danger"  name="<%= BUTTON_SAVE %>" value="<%= ejbcawebbean.getText("SAVE") %>" tabindex="<%=tabindex++%>" onClick='return checkallfields()'>
 		  &nbsp;&nbsp;&nbsp;
-		  <input type="button" name="<%= BUTTON_CLOSE %>" value="<%= ejbcawebbean.getText("CLOSE") %>" tabindex="<%=tabindex++%>" onclick='self.close()'>
+		  <input type="button" class="btn btn-sm btn-danger"  name="<%= BUTTON_CLOSE %>" value="<%= ejbcawebbean.getText("CLOSE") %>" tabindex="<%=tabindex++%>" onclick='self.close()'>
 	  </td>
 	  <td>&nbsp;</td>
 	</tr> 
